@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #fff;
+	font: 12px "Microsoft Yahei", 宋体,"Times New Roman", Times, serif;
+	color: #515151;
+}
+a,a:hover{
+	text-decoration: none;
+	color: #515151;
+}
+ul,li{ list-style: none;}
+fieldset,img,iframe{ border: none;}
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img,span,em,input,button,label,select{
+	vertical-align: middle;
+}
+
+.clear{
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+.oh{ overflow: hidden;}
+.center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.fl{ float: left;}
+.fr{ float: right;}
+
+.tc{ text-align: center;}
+.tl{ text-align: left;}
+.tr{ text-align: right;}
+
+.mt5{ margin-top: 5px;}
+.mt10{ margin-top: 10px;}
+.mt15{ margin-top: 15px;}
+.mt20{ margin-top: 20px;}
+
+.font-fff,.font-fff a{
+	color: #fff;
+}

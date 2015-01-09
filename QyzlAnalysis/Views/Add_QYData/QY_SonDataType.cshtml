@@ -1,0 +1,170 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QY_SonDataType</title>
+    <link href="../../style/base.css" rel="stylesheet" type="text/css" />
+    <link href="../../style/divIframe.css" rel="stylesheet" type="text/css" />
+     <script src="../../Scripts/jquery-1.9.0.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.tmpl.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.paginate.js" type="text/javascript"></script>
+    <link href="../../style/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/x-jquery-tmpl" id="trTemp">
+    <tr>
+        <td>${ID}</td>
+        <td>${Name}</td>
+        <td>${Dtid}</td>
+        <td>${DeafultUnit}</td>
+        <td><a href="javascript:DoDel(${ID})">删</a></td>
+    </tr>
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(Add);
+            $("#btn2").click(Add2);
+            LoadPage(1);
+            $("#fname1").change(function () {
+                var dtid = $(this).find("option:selected").val();
+                $.getJSON("/Add_QYData/ChangeQY_YearNum/" + dtid, null, function (jsobj) {
+                    var html = '';
+                    for (var i = jsobj.length - 1; i >= 0; i--) {
+                        html = "<option  value=\"" + jsobj[i].id + "\">" + jsobj[i].name + "</option>" + html;
+                    }
+                    $("#son").html(html);
+                    $("#son1").html(html);
+                });
+            });
+        });
+        function DoDel(ID) {
+            if (!confirm("您确定要删除?")) return;
+            $.post("/Add_QYData/DelQY_SonDataType", "ID=" + ID, function (jsobj) {
+                alert(jsobj.msg);
+                window.location.reload();
+            }, "json");
+        }
+        function Add() {
+            var data = $("#f1").serialize();
+            $.post("/Add_QYData/AddQY_SonDataType", data, function (jsobj) {
+                alert(jsobj.msg);
+                window.location.reload();
+            }, "json");
+        }
+        function Add2() {
+            var data = $("#f2").serialize();
+            $.post("/Add_QYData/AddRelation", data, function (jsobj) {
+                alert(jsobj.msg);
+                //window.location.reload();
+            }, "json");
+        }
+        function LoadPage(PageIndex) {
+            $.getJSON("/Add_QYData/LoadQY_SonDataType/" + PageIndex, null, function (jsobj) {
+                $("#tbList tr:gt(0)").remove();
+                $("#pager").paginate({
+                    count: jsobj.PageCount,
+                    start: jsobj.PageIndex,
+                    display: 3,
+                    border: true,
+                    text_color: '#79B5E3',
+                    background_color: 'none',
+                    text_hover_color: '#2573AF',
+                    background_hover_color: 'none',
+                    images: false,
+                    mouse: 'press',
+                    onChange: function (page) { LoadPage(page); }
+                });
+                $("#trTemp").tmpl(jsobj.PagedData).appendTo("#tbList");
+            });
+        }
+    </script>
+</head>
+<body>
+    <!--  formDetail  -->
+    <div class="formDetail oh">
+    	<h1>区域添加-子数据添加</h1>
+    	<div class="clear"></div>
+         <form id="f1">
+          <table>
+        	<tr>
+            	<th>子数据类别名称</th>
+                <td><input type="text" name="sonname" /></td>
+            </tr>
+            <tr>
+            	<th>父数据类别</th>
+                <td>@Html.DropDownList("fname", ViewData["datatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+            <tr>
+            	<th>计量单位</th>
+                <td>@Html.DropDownList("unit", ViewData["unit_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+        </table>
+        <div class="clear"></div>
+        
+        <div class="formBtn oh">
+            <img id="btn" type="button" value="添加" src="../../img/btn-add-data.png" />
+        </div>
+         </form>
+         </div>
+    <!--  formDetail end  -->
+    <div class="clear"></div>
+      <div class="formContent oh">
+		
+        <h1>子数据列表</h1>
+        <div class="clear"></div>
+        
+           <table id="tbList" class="tc">
+            <thead>
+                <tr>
+                	<td>ID</td>
+                    <td>子数据类别</td>
+                    <td>父数据类别</td>
+                    <td>计量单位</td>
+                    <td>操作</td>
+        		</tr>
+        	</thead>
+            
+        </table>
+        <div id="pager"></div>
+        
+	</div>
+    <!--  formContent end  -->
+      <div class="clear"></div>
+    
+    
+    <!--  formDetail  -->
+    <div class="formDetail oh">
+    	<h1>区域添加-子数据关系添加</h1>
+        <div class="clear"></div>
+        
+         <form id="f2">
+        <table>
+        	<tr>
+            	<th>父数据类别</th>
+                <td>@Html.DropDownList("fname1", ViewData["datatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+        	<tr>
+            	<th>子数据类别1</th>
+                <td>@Html.DropDownList("son", ViewData["sondatatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+        	<tr>
+            	<th>子数据类别2</th>
+                <td>@Html.DropDownList("son1", ViewData["sondatatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+        	<tr>
+            	<th>表名</th>
+                <td><select name="tbname"><option value="QY_SonDataType">QY_SonDataType</option> <option value="QY_DataType">QY_DataType</option></select></td>
+            </tr>
+        </table>
+        <div class="clear"></div>
+        
+        <div class="formBtn oh">
+            <img id="btn2" type="button" value="添加" src="../../img/btn-add-data.png" />
+        </div>
+        </form>
+    </div>
+    <!--  formDetail end  -->
+    <div class="clear"></div>
+</body>
+</html>

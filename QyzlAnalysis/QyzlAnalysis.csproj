@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A4D62E9E-A683-4EFF-A7E4-E68F7543E4F3}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QyzlAnalysis</RootNamespace>
+    <AssemblyName>QyzlAnalysis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Atrributes\SkipAttribute.cs" />
+    <Compile Include="Common\DataHelper.cs" />
+    <Compile Include="Common\ExcelHelper.cs" />
+    <Compile Include="Common\Filters\LoginValidate.cs" />
+    <Compile Include="Common\InsertZlHelper.cs" />
+    <Compile Include="Common\PageHelper.cs" />
+    <Compile Include="Common\Qytable.cs" />
+    <Compile Include="Content\StyleName.cs" />
+    <Compile Include="Content\Xaxle.cs" />
+    <Compile Include="Controllers\AddDataTypeController.cs" />
+    <Compile Include="Controllers\AddInfoController.cs" />
+    <Compile Include="Controllers\Add_QYDataController.cs" />
+    <Compile Include="Controllers\Add_ZLDataController.cs" />
+    <Compile Include="Controllers\CreateTabController.cs" />
+    <Compile Include="Controllers\CustomDataController.cs" />
+    <Compile Include="Controllers\GsProTabController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MainShowController.cs" />
+    <Compile Include="Controllers\QyTableController.cs" />
+    <Compile Include="Controllers\SecAndEduController.cs" />
+    <Compile Include="Controllers\ShowController.cs" />
+    <Compile Include="Controllers\SubSectionController.cs" />
+    <Compile Include="Controllers\XaxisController.cs" />
+    <Compile Include="Controllers\ZlProTabController.cs" />
+    <Compile Include="DbHelper\DbHelper.cs" />
+    <Compile Include="DbHelper\HandleView.cs" />
+    <Compile Include="DbHelper\PubHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\alldata.cs" />
+    <Compile Include="Models\datamodel.cs" />
+    <Compile Include="Models\JsonModel.cs" />
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PagedDataModel.cs" />
+    <Compile Include="Models\YearModel.cs" />
+    <Compile Include="Models\zlclassifymodel.cs" />
+    <Compile Include="Models\ZLDetailModel.cs" />
+    <Compile Include="Models\ZlJson\ZlModel1.cs" />
+    <Compile Include="Models\ZlJson\ZlModel2.cs" />
+    <Compile Include="Models\ZlJson\ZlModel3.cs" />
+    <Compile Include="Models\ZL_ClassifyNewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="icon\icon-jjsj-1 .png" />
+    <Content Include="icon\icon-jjsj-10 .png" />
+    <Content Include="icon\icon-jjsj-11 .png" />
+    <Content Include="icon\icon-jjsj-12 .png" />
+    <Content Include="icon\icon-jjsj-13 .png" />
+    <Content Include="icon\icon-jjsj-14 .png" />
+    <Content Include="icon\icon-jjsj-15 .png" />
+    <Content Include="icon\icon-jjsj-16 .png" />
+    <Content Include="icon\icon-jjsj-17 .png" />
+    <Content Include="icon\icon-jjsj-18 .png" />
+    <Content Include="icon\icon-jjsj-19 .png" />
+    <Content Include="icon\icon-jjsj-2 .png" />
+    <Content Include="icon\icon-jjsj-20 .png" />
+    <Content Include="icon\icon-jjsj-21 .png" />
+    <Content Include="icon\icon-jjsj-22 .png" />
+    <Content Include="icon\icon-jjsj-23 .png" />
+    <Content Include="icon\icon-jjsj-3 .png" />
+    <Content Include="icon\icon-jjsj-4 .png" />
+    <Content Include="icon\icon-jjsj-5 .png" />
+    <Content Include="icon\icon-jjsj-6 .png" />
+    <Content Include="icon\icon-jjsj-7 .png" />
+    <Content Include="icon\icon-jjsj-8 .png" />
+    <Content Include="icon\icon-jjsj-9 .png" />
+    <Content Include="icon\icon-jjsj.png" />
+    <Content Include="icon\icon-zdysj.png" />
+    <Content Include="icon\icon-zlsj-1 .png" />
+    <Content Include="icon\icon-zlsj-2 .png" />
+    <Content Include="icon\icon-zlsj-3 .png" />
+    <Content Include="icon\icon-zlsj.png" />
+    <Content Include="images\loader.gif" />
+    <Content Include="images\qzonebg.gif" />
+    <Content Include="img\btn-add-data.png" />
+    <Content Include="img\btn-create-chart.png" />
+    <Content Include="img\btn-delete-data.png" />
+    <Content Include="img\btn-export-excel.png" />
+    <Content Include="img\btn-import-bulk-gray.png" />
+    <Content Include="img\btn-import-bulk.png" />
+    <Content Include="img\btn-import-data.png" />
+    <Content Include="img\btn-save-data.png" />
+    <Content Include="img\defaultPhoto.jpg" />
+    <Content Include="img\icon-blackBg-30.png" />
+    <Content Include="img\icon-delete-on.png" />
+    <Content Include="img\icon-delete.png" />
+    <Content Include="img\icon-edit-on.png" />
+    <Content Include="img\icon-edit.png" />
+    <Content Include="img\icon-exitLogin.png" />
+    <Content Include="img\icon-input1.png" />
+    <Content Include="img\icon-input2.png" />
+    <Content Include="img\icon-input3.png" />
+    <Content Include="img\icon-input4.png" />
+    <Content Include="img\icon-input5.png" />
+    <Content Include="img\icon-input6.png" />
+    <Content Include="img\icon-jjsj-1 .png" />
+    <Content Include="img\icon-jjsj-10 .png" />
+    <Content Include="img\icon-jjsj-11 .png" />
+    <Content Include="img\icon-jjsj-12 .png" />
+    <Content Include="img\icon-jjsj-13 .png" />
+    <Content Include="img\icon-jjsj-14 .png" />
+    <Content Include="img\icon-jjsj-15 .png" />
+    <Content Include="img\icon-jjsj-16 .png" />
+    <Content Include="img\icon-jjsj-17 .png" />
+    <Content Include="img\icon-jjsj-18 .png" />
+    <Content Include="img\icon-jjsj-19 .png" />
+    <Content Include="img\icon-jjsj-2 .png" />
+    <Content Include="img\icon-jjsj-20 .png" />
+    <Content Include="img\icon-jjsj-21 .png" />
+    <Content Include="img\icon-jjsj-22 .png" />
+    <Content Include="img\icon-jjsj-23 .png" />
+    <Content Include="img\icon-jjsj-3 .png" />
+    <Content Include="img\icon-jjsj-4 .png" />
+    <Content Include="img\icon-jjsj-5 .png" />
+    <Content Include="img\icon-jjsj-7 .png" />
+    <Content Include="img\icon-jjsj-8 .png" />
+    <Content Include="img\icon-jjsj-9 .png" />
+    <Content Include="img\icon-jjsj.png" />
+    <Content Include="img\icon-open-on.png" />
+    <Content Include="img\icon-open.png" />
+    <Content Include="img\icon-refresh.png" />
+    <Content Include="img\icon-search.png" />
+    <Content Include="img\icon-sidebar-li-on.png" />
+    <Content Include="img\icon-sjgl.png" />
+    <Content Include="img\icon-sjlr-2.png" />
+    <Content Include="img\icon-sjlr-3.png" />
+    <Content Include="img\icon-sjlr-4.png" />
+    <Content Include="img\icon-sjlr-5.png" />
+    <Content Include="img\icon-sjlr.png" />
+    <Content Include="img\icon-triangel-down.png" />
+    <Content Include="img\icon-triangel-left.png" />
+    <Content Include="img\icon-triangel-right-long.png" />
+    <Content Include="img\icon-triangel-right.png" />
+    <Content Include="img\icon-triangel-up.png" />
+    <Content Include="img\icon-webSite.png" />
+    <Content Include="img\icon-whiteBg-10.png" />
+    <Content Include="img\icon-whiteBg-20.png" />
+    <Content Include="img\icon-whiteBg-30.png" />
+    <Content Include="img\icon-yzm.jpg" />
+    <Content Include="img\icon-zdysj.png" />
+    <Content Include="img\icon-zlsj-1 .png" />
+    <Content Include="img\icon-zlsj-2 .png" />
+    <Content Include="img\icon-zlsj-3 .png" />
+    <Content Include="img\icon-zlsj.png" />
+    <Content Include="img\index-webName-us.png" />
+    <Content Include="img\index-webName-zh.png" />
+    <Content Include="img\loader.gif" />
+    <Content Include="img\login-areaInput-li.png" />
+    <Content Include="img\login-areaInput-password.png" />
+    <Content Include="img\login-areaInput-username.png" />
+    <Content Include="img\login-background.jpg" />
+    <Content Include="img\login-logo.png" />
+    <Content Include="img\login-submit-on.png" />
+    <Content Include="img\login-submit.png" />
+    <Content Include="img\login-webName-us.png" />
+    <Content Include="img\login-webName-zh.png" />
+    <Content Include="img\login-whiteBg-bg.png" />
+    <Content Include="img\login-whiteBg-whiteLine.png" />
+    <Content Include="img\login-window-bg.png" />
+    <Content Include="img\qzonebg.gif" />
+    <Content Include="img\table-dataForm-thead.jpg" />
+    <Content Include="img\welcome-bg.jpg" />
+    <Content Include="js\changeencord.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\echarts-2.0.4\src\chart.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\bar.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\base.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\chord.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\force.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\forceLayoutWorker.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\funnel.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\gauge.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\island.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\k.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\line.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\map.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\pie.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\radar.js" />
+    <Content Include="js\echarts-2.0.4\src\chart\scatter.js" />
+    <Content Include="js\echarts-2.0.4\src\component.js" />
+    <Content Include="js\echarts-2.0.4\src\component\axis.js" />
+    <Content Include="js\echarts-2.0.4\src\component\base.js" />
+    <Content Include="js\echarts-2.0.4\src\component\categoryAxis.js" />
+    <Content Include="js\echarts-2.0.4\src\component\dataRange.js" />
+    <Content Include="js\echarts-2.0.4\src\component\dataView.js" />
+    <Content Include="js\echarts-2.0.4\src\component\dataZoom.js" />
+    <Content Include="js\echarts-2.0.4\src\component\grid.js" />
+    <Content Include="js\echarts-2.0.4\src\component\legend.js" />
+    <Content Include="js\echarts-2.0.4\src\component\polar.js" />
+    <Content Include="js\echarts-2.0.4\src\component\roamController.js" />
+    <Content Include="js\echarts-2.0.4\src\component\timeline.js" />
+    <Content Include="js\echarts-2.0.4\src\component\title.js" />
+    <Content Include="js\echarts-2.0.4\src\component\toolbox.js" />
+    <Content Include="js\echarts-2.0.4\src\component\tooltip.js" />
+    <Content Include="js\echarts-2.0.4\src\component\valueAxis.js" />
+    <Content Include="js\echarts-2.0.4\src\config.js" />
+    <Content Include="js\echarts-2.0.4\src\data\Graph.js" />
+    <Content Include="js\echarts-2.0.4\src\echarts.js" />
+    <Content Include="js\echarts-2.0.4\src\esl.js" />
+    <Content Include="js\echarts-2.0.4\src\layout\Force.js" />
+    <Content Include="js\echarts-2.0.4\src\layout\forceLayoutWorker.js" />
+    <Content Include="js\echarts-2.0.4\src\theme\default.js" />
+    <Content Include="js\echarts-2.0.4\src\util\accMath.js" />
+    <Content Include="js\echarts-2.0.4\src\util\coordinates.js" />
+    <Content Include="js\echarts-2.0.4\src\util\ecAnimation.js" />
+    <Content Include="js\echarts-2.0.4\src\util\ecData.js" />
+    <Content Include="js\echarts-2.0.4\src\util\ecEffect.js" />
+    <Content Include="js\echarts-2.0.4\src\util\ecQuery.js" />
+    <Content Include="js\echarts-2.0.4\src\util\kwargs.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoCoord.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\an_hui_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\ao_men_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\bei_jing_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\china_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\chong_qing_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\fu_jian_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\gan_su_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\guang_dong_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\guang_xi_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\gui_zhou_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\hai_nan_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\hei_long_jiang_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\he_bei_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\he_nan_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\hu_bei_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\hu_nan_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\jiang_su_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\jiang_xi_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\ji_lin_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\liao_ning_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\nei_meng_gu_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\ning_xia_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\qing_hai_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\shang_hai_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\shan_dong_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\shan_xi_1_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\shan_xi_2_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\si_chuan_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\tai_wan_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\tian_jin_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\world_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\xiang_gang_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\xin_jiang_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\xi_zang_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\yun_nan_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\geoJson\zhe_jiang_geo.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\params.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\rawData\encode.js" />
+    <Content Include="js\echarts-2.0.4\src\util\mapData\textFixed.js" />
+    <Content Include="js\echarts-2.0.4\src\util\ndarray.js" />
+    <Content Include="js\echarts-2.0.4\src\util\number.js" />
+    <Content Include="js\echarts-2.0.4\src\util\projection\albers.js" />
+    <Content Include="js\echarts-2.0.4\src\util\projection\mercator.js" />
+    <Content Include="js\echarts-2.0.4\src\util\projection\normal.js" />
+    <Content Include="js\echarts-2.0.4\src\util\projection\svg.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\Candle.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\Chain.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\Chord.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\Cross.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\GaugePointer.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\HalfSmoothPolygon.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\HandlePolygon.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\Icon.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\MarkLine.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\normalIsCover.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\Ribbon.js" />
+    <Content Include="js\echarts-2.0.4\src\util\shape\Symbol.js" />
+    <Content Include="js\echarts-2.1.9\src\chart.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\bar.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\base.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\chord.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\eventRiver.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\force.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\funnel.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\gauge.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\island.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\k.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\line.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\map.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\pie.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\radar.js" />
+    <Content Include="js\echarts-2.1.9\src\chart\scatter.js" />
+    <Content Include="js\echarts-2.1.9\src\component.js" />
+    <Content Include="js\echarts-2.1.9\src\component\axis.js" />
+    <Content Include="js\echarts-2.1.9\src\component\base.js" />
+    <Content Include="js\echarts-2.1.9\src\component\categoryAxis.js" />
+    <Content Include="js\echarts-2.1.9\src\component\dataRange.js" />
+    <Content Include="js\echarts-2.1.9\src\component\dataView.js" />
+    <Content Include="js\echarts-2.1.9\src\component\dataZoom.js" />
+    <Content Include="js\echarts-2.1.9\src\component\grid.js" />
+    <Content Include="js\echarts-2.1.9\src\component\legend.js" />
+    <Content Include="js\echarts-2.1.9\src\component\polar.js" />
+    <Content Include="js\echarts-2.1.9\src\component\roamController.js" />
+    <Content Include="js\echarts-2.1.9\src\component\timeline.js" />
+    <Content Include="js\echarts-2.1.9\src\component\title.js" />
+    <Content Include="js\echarts-2.1.9\src\component\toolbox.js" />
+    <Content Include="js\echarts-2.1.9\src\component\tooltip.js" />
+    <Content Include="js\echarts-2.1.9\src\component\valueAxis.js" />
+    <Content Include="js\echarts-2.1.9\src\config.js" />
+    <Content Include="js\echarts-2.1.9\src\data\Graph.js" />
+    <Content Include="js\echarts-2.1.9\src\data\Tree.js" />
+    <Content Include="js\echarts-2.1.9\src\echarts.js" />
+    <Content Include="js\echarts-2.1.9\src\esl.js" />
+    <Content Include="js\echarts-2.1.9\src\layout\Chord.js" />
+    <Content Include="js\echarts-2.1.9\src\layout\eventRiver.js" />
+    <Content Include="js\echarts-2.1.9\src\layout\Force.js" />
+    <Content Include="js\echarts-2.1.9\src\layout\forceLayoutWorker.js" />
+    <Content Include="js\echarts-2.1.9\src\layout\Tree.js" />
+    <Content Include="js\echarts-2.1.9\src\theme\default.js" />
+    <Content Include="js\echarts-2.1.9\src\util\accMath.js" />
+    <Content Include="js\echarts-2.1.9\src\util\coordinates.js" />
+    <Content Include="js\echarts-2.1.9\src\util\date.js" />
+    <Content Include="js\echarts-2.1.9\src\util\ecAnimation.js" />
+    <Content Include="js\echarts-2.1.9\src\util\ecData.js" />
+    <Content Include="js\echarts-2.1.9\src\util\ecEffect.js" />
+    <Content Include="js\echarts-2.1.9\src\util\ecQuery.js" />
+    <Content Include="js\echarts-2.1.9\src\util\kwargs.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoCoord.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\an_hui_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\ao_men_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\bei_jing_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\china_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\chong_qing_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\fu_jian_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\gan_su_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\guang_dong_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\guang_xi_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\gui_zhou_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\hai_nan_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\hei_long_jiang_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\he_bei_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\he_nan_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\hu_bei_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\hu_nan_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\jiang_su_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\jiang_xi_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\ji_lin_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\liao_ning_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\nei_meng_gu_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\ning_xia_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\qing_hai_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\shang_hai_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\shan_dong_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\shan_xi_1_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\shan_xi_2_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\si_chuan_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\tai_wan_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\tian_jin_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\world_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\xiang_gang_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\xin_jiang_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\xi_zang_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\yun_nan_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\geoJson\zhe_jiang_geo.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\params.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\rawData\encode.js" />
+    <Content Include="js\echarts-2.1.9\src\util\mapData\textFixed.js" />
+    <Content Include="js\echarts-2.1.9\src\util\ndarray.js" />
+    <Content Include="js\echarts-2.1.9\src\util\number.js" />
+    <Content Include="js\echarts-2.1.9\src\util\projection\albers.js" />
+    <Content Include="js\echarts-2.1.9\src\util\projection\mercator.js" />
+    <Content Include="js\echarts-2.1.9\src\util\projection\normal.js" />
+    <Content Include="js\echarts-2.1.9\src\util\projection\svg.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\Candle.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\Chain.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\Cross.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\GaugePointer.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\HalfSmoothPolygon.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\HandlePolygon.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\Icon.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\MarkLine.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\normalIsCover.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\Ribbon.js" />
+    <Content Include="js\echarts-2.1.9\src\util\shape\Symbol.js" />
+    <Content Include="js\echarts-2.1.9\src\util\smartSteps.js" />
+    <Content Include="js\mainindex.js" />
+    <Content Include="js\msgBox.js" />
+    <Content Include="js\My97DatePicker\calendar.js" />
+    <Content Include="js\My97DatePicker\config.js" />
+    <Content Include="js\My97DatePicker\lang\en.js" />
+    <Content Include="js\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="js\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="js\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="js\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="js\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="js\My97DatePicker\skin\default\img.gif" />
+    <Content Include="js\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="js\My97DatePicker\WdatePicker.js" />
+    <Content Include="js\My97DatePicker\开发包\lang\en.js" />
+    <Content Include="js\My97DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="js\My97DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="js\My97DatePicker\开发包\readme.txt" />
+    <Content Include="js\My97DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="js\My97DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="js\My97DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="js\My97DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="js\My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="js\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="js\My97DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="js\nav.js" />
+    <Content Include="js\qyevent.js" />
+    <Content Include="js\qytable.js" />
+    <Content Include="js\requerconfig.js" />
+    <Content Include="js\zrender-2.0.4\src\animation\Animation.js" />
+    <Content Include="js\zrender-2.0.4\src\animation\Clip.js" />
+    <Content Include="js\zrender-2.0.4\src\animation\easing.js" />
+    <Content Include="js\zrender-2.0.4\src\config.js" />
+    <Content Include="js\zrender-2.0.4\src\dep\excanvas.js" />
+    <Content Include="js\zrender-2.0.4\src\Group.js" />
+    <Content Include="js\zrender-2.0.4\src\Handler.js" />
+    <Content Include="js\zrender-2.0.4\src\loadingEffect\Bar.js" />
+    <Content Include="js\zrender-2.0.4\src\loadingEffect\Base.js" />
+    <Content Include="js\zrender-2.0.4\src\loadingEffect\Bubble.js" />
+    <Content Include="js\zrender-2.0.4\src\loadingEffect\DynamicLine.js" />
+    <Content Include="js\zrender-2.0.4\src\loadingEffect\Ring.js" />
+    <Content Include="js\zrender-2.0.4\src\loadingEffect\Spin.js" />
+    <Content Include="js\zrender-2.0.4\src\loadingEffect\Whirling.js" />
+    <Content Include="js\zrender-2.0.4\src\mixin\Eventful.js" />
+    <Content Include="js\zrender-2.0.4\src\mixin\Transformable.js" />
+    <Content Include="js\zrender-2.0.4\src\Painter.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Base.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\BezierCurve.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\BrokenLine.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Circle.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Droplet.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Ellipse.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Group.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Heart.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Image.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Isogon.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Line.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Path.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Polygon.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Rectangle.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Ring.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Rose.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Sector.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Star.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Text.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\Trochoid.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\util\dashedLineTo.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\util\PathProxy.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\util\smoothBezier.js" />
+    <Content Include="js\zrender-2.0.4\src\shape\util\smoothSpline.js" />
+    <Content Include="js\zrender-2.0.4\src\Storage.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\area.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\color.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\computeBoundingBox.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\curve.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\env.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\event.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\guid.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\http.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\log.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\math.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\matrix.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\util.js" />
+    <Content Include="js\zrender-2.0.4\src\tool\vector.js" />
+    <Content Include="js\zrender-2.0.4\src\zrender.js" />
+    <Content Include="js\zrender-2.0.6\src\animation\Animation.js" />
+    <Content Include="js\zrender-2.0.6\src\animation\Clip.js" />
+    <Content Include="js\zrender-2.0.6\src\animation\easing.js" />
+    <Content Include="js\zrender-2.0.6\src\config.js" />
+    <Content Include="js\zrender-2.0.6\src\dep\excanvas.js" />
+    <Content Include="js\zrender-2.0.6\src\dep\excanvas2.js" />
+    <Content Include="js\zrender-2.0.6\src\dep\excanvas3.js" />
+    <Content Include="js\zrender-2.0.6\src\Group.js" />
+    <Content Include="js\zrender-2.0.6\src\Handler.js" />
+    <Content Include="js\zrender-2.0.6\src\loadingEffect\Bar.js" />
+    <Content Include="js\zrender-2.0.6\src\loadingEffect\Base.js" />
+    <Content Include="js\zrender-2.0.6\src\loadingEffect\Bubble.js" />
+    <Content Include="js\zrender-2.0.6\src\loadingEffect\DynamicLine.js" />
+    <Content Include="js\zrender-2.0.6\src\loadingEffect\Ring.js" />
+    <Content Include="js\zrender-2.0.6\src\loadingEffect\Spin.js" />
+    <Content Include="js\zrender-2.0.6\src\loadingEffect\Whirling.js" />
+    <Content Include="js\zrender-2.0.6\src\mixin\Eventful.js" />
+    <Content Include="js\zrender-2.0.6\src\mixin\Transformable.js" />
+    <Content Include="js\zrender-2.0.6\src\Painter.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Base.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\BezierCurve.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\BrokenLine.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Circle.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Droplet.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Ellipse.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Heart.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Image.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Isogon.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Line.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Path.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Polygon.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Rectangle.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Ring.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Rose.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Sector.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Star.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Text.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\Trochoid.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\util\dashedLineTo.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\util\PathProxy.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\util\smoothBezier.js" />
+    <Content Include="js\zrender-2.0.6\src\shape\util\smoothSpline.js" />
+    <Content Include="js\zrender-2.0.6\src\Storage.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\area.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\color.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\computeBoundingBox.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\curve.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\env.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\event.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\guid.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\http.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\log.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\math.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\matrix.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\util.js" />
+    <Content Include="js\zrender-2.0.6\src\tool\vector.js" />
+    <Content Include="js\zrender-2.0.6\src\zrender.js" />
+    <Content Include="js\ztree\css\demo.css" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\1_close.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\1_open.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\2.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\3.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\4.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\5.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\6.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\7.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\8.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\9.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\icon-contact-off.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\icon-contact-on.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\icon-house-close.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\icon-house-open.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\icon_contact_off.png" />
+    <Content Include="js\ztree\css\zTreeStyle\DIY\icon_contact_on.png" />
+    <Content Include="js\ztree\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="js\ztree\css\zTreeStyle\img\loading.gif" />
+    <Content Include="js\ztree\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="js\ztree\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="js\ztree\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="js\ztree\css\zTreeStyle\zTreeStyle2.css" />
+    <Content Include="js\ztree\js\jquery.ztree.core-3.5.js" />
+    <Content Include="js\ztree\lang\zh_CN.js" />
+    <Content Include="js\ztree\plugins\anchor\anchor.js" />
+    <Content Include="js\ztree\plugins\autoheight\autoheight.js" />
+    <Content Include="js\ztree\plugins\baidumap\baidumap.js" />
+    <Content Include="js\ztree\plugins\baidumap\index.html" />
+    <Content Include="js\ztree\plugins\baidumap\map.html" />
+    <Content Include="js\ztree\plugins\clearhtml\clearhtml.js" />
+    <Content Include="js\ztree\plugins\code\code.js" />
+    <Content Include="js\ztree\plugins\code\prettify.css" />
+    <Content Include="js\ztree\plugins\code\prettify.js" />
+    <Content Include="js\ztree\plugins\emoticons\emoticons.js" />
+    <Content Include="js\ztree\plugins\emoticons\images\0.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\1.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\10.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\100.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\101.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\102.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\103.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\104.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\105.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\106.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\107.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\108.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\109.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\11.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\110.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\111.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\112.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\113.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\114.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\115.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\116.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\117.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\118.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\119.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\12.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\120.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\121.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\122.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\123.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\124.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\125.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\126.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\127.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\128.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\129.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\13.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\130.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\131.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\132.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\133.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\134.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\14.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\15.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\16.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\17.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\18.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\19.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\2.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\20.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\21.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\22.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\23.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\24.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\25.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\26.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\27.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\28.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\29.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\3.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\30.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\31.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\32.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\33.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\34.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\35.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\36.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\37.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\38.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\39.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\4.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\40.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\41.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\42.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\43.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\44.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\45.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\46.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\47.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\48.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\49.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\5.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\50.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\51.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\52.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\53.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\54.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\55.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\56.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\57.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\58.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\59.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\6.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\60.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\61.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\62.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\63.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\64.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\65.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\66.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\67.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\68.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\69.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\7.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\70.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\71.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\72.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\73.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\74.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\75.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\76.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\77.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\78.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\79.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\8.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\80.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\81.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\82.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\83.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\84.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\85.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\86.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\87.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\88.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\89.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\9.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\90.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\91.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\92.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\93.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\94.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\95.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\96.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\97.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\98.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\99.gif" />
+    <Content Include="js\ztree\plugins\emoticons\images\static.gif" />
+    <Content Include="js\ztree\plugins\filemanager\filemanager.js" />
+    <Content Include="js\ztree\plugins\filemanager\images\file-16.gif" />
+    <Content Include="js\ztree\plugins\filemanager\images\file-64.gif" />
+    <Content Include="js\ztree\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="js\ztree\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="js\ztree\plugins\filemanager\images\go-up.gif" />
+    <Content Include="js\ztree\plugins\flash\flash.js" />
+    <Content Include="js\ztree\plugins\image\image.js" />
+    <Content Include="js\ztree\plugins\image\images\align_left.gif" />
+    <Content Include="js\ztree\plugins\image\images\align_right.gif" />
+    <Content Include="js\ztree\plugins\image\images\align_top.gif" />
+    <Content Include="js\ztree\plugins\image\images\refresh.png" />
+    <Content Include="js\ztree\plugins\insertfile\insertfile.js" />
+    <Content Include="js\ztree\plugins\lineheight\lineheight.js" />
+    <Content Include="js\ztree\plugins\link\link.js" />
+    <Content Include="js\ztree\plugins\map\map.html" />
+    <Content Include="js\ztree\plugins\map\map.js" />
+    <Content Include="js\ztree\plugins\media\media.js" />
+    <Content Include="js\ztree\plugins\multiimage\images\image.png" />
+    <Content Include="js\ztree\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="js\ztree\plugins\multiimage\images\select-files-zh_CN.png" />
+    <Content Include="js\ztree\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="js\ztree\plugins\multiimage\multiimage.js" />
+    <Content Include="js\ztree\plugins\pagebreak\pagebreak.js" />
+    <Content Include="js\ztree\plugins\plainpaste\plainpaste.js" />
+    <Content Include="js\ztree\plugins\preview\preview.js" />
+    <Content Include="js\ztree\plugins\quickformat\quickformat.js" />
+    <Content Include="js\ztree\plugins\table\table.js" />
+    <Content Include="js\ztree\plugins\template\html\1.html" />
+    <Content Include="js\ztree\plugins\template\html\2.html" />
+    <Content Include="js\ztree\plugins\template\html\3.html" />
+    <Content Include="js\ztree\plugins\template\template.js" />
+    <Content Include="js\ztree\plugins\wordpaste\wordpaste.js" />
+    <Content Include="js\ztree\themes\common\anchor.gif" />
+    <Content Include="js\ztree\themes\common\blank.gif" />
+    <Content Include="js\ztree\themes\common\flash.gif" />
+    <Content Include="js\ztree\themes\common\loading.gif" />
+    <Content Include="js\ztree\themes\common\media.gif" />
+    <Content Include="js\ztree\themes\common\rm.gif" />
+    <Content Include="js\ztree\themes\default\background.png" />
+    <Content Include="js\ztree\themes\default\default.css" />
+    <Content Include="js\ztree\themes\default\default.png" />
+    <Content Include="Lib\Ionic.Zip.dll" />
+    <Content Include="Lib\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.pdb" />
+    <Content Include="Lib\Newtonsoft.Json.xml" />
+    <Content Include="Lib\NPOI.dll" />
+    <Content Include="Lib\NPOI.XML" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.paginate.js" />
+    <Content Include="Scripts\jquery.paginate1.js" />
+    <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\jquery.tmpl.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="style\base.css" />
+    <Content Include="style\divIframe.css" />
+    <Content Include="style\index.css" />
+    <Content Include="style\login.css" />
+    <Content Include="style\style.css" />
+    <Content Include="style\subSection.css" />
+    <Content Include="style\subSection2.css" />
+    <Content Include="style\user%281%29.css" />
+    <Content Include="style\user.css" />
+    <Content Include="Views\images\loader.gif" />
+    <Content Include="Views\images\qzonebg.gif" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AddInfo\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MainShow\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\ValidateCode.ashx" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\an_hui_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\ao_men_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\bei_jing_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\china_city.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\china_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\chong_qing_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\fu_jian_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\gan_su_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\guang_dong_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\guang_xi_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\gui_zhou_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\hai_nan_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\hei_long_jiang_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\he_bei_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\he_nan_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\hu_bei_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\hu_nan_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\jiang_su_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\jiang_xi_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\ji_lin_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\liao_ning_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\nei_meng_gu_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\ning_xia_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\qing_hai_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\shang_hai_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\shan_dong_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\shan_xi_1_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\shan_xi_2_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\si_chuan_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\tai_wan_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\tian_jin_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\world_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\xiang_gang_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\xin_jiang_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\xi_zang_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\yun_nan_geo.json" />
+    <None Include="js\echarts-2.0.4\src\util\mapData\rawData\geoJson\zhe_jiang_geo.json" />
+    <Content Include="Views\Shared\Platter.cshtml" />
+    <Content Include="Views\MainShow\Show.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Show\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Add_QYData\QY_DataType.cshtml" />
+    <Content Include="Views\Add_QYData\QY_Unit.cshtml" />
+    <Content Include="Views\Add_QYData\QY_YearNum.cshtml" />
+    <Content Include="Views\Add_QYData\QY_SonDataType.cshtml" />
+    <Content Include="Views\Home\Show.cshtml" />
+    <Content Include="Views\Add_ZLData\ZL_DataType.cshtml" />
+    <Content Include="Views\Add_ZLData\ZL_Classify.cshtml" />
+    <Content Include="Views\Add_ZLData\ZL_ClassifyData.cshtml" />
+    <Content Include="Views\Add_ZLData\ZL_Data.cshtml" />
+    <Content Include="Views\Add_ZLData\ZL_GsCompany.cshtml" />
+    <Content Include="Views\QyTable\Index.cshtml" />
+    <Content Include="Views\SubSection\Index.cshtml" />
+    <Content Include="Views\ZlProTab\Index.cshtml" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\an_hui_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\ao_men_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\bei_jing_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\china_city.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\china_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\chong_qing_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\fu_jian_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\gan_su_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\guang_dong_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\guang_xi_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\gui_zhou_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\hai_nan_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\hei_long_jiang_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\he_bei_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\he_nan_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\hu_bei_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\hu_nan_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\jiang_su_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\jiang_xi_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\ji_lin_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\liao_ning_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\nei_meng_gu_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\ning_xia_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\qing_hai_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\shang_hai_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\shan_dong_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\shan_xi_1_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\shan_xi_2_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\si_chuan_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\tai_wan_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\tian_jin_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\world_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\xiang_gang_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\xin_jiang_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\xi_zang_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\yun_nan_geo.json" />
+    <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\zhe_jiang_geo.json" />
+    <Content Include="Views\CustomData\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5788</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

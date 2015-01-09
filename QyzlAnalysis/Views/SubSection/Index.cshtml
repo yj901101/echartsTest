@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@using QyzlAnalysis.Models;
+@using QyzlAnalysis.Content;
+<link href="../../style/subSection.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    body{
+	background-color: #fff;
+	font: 12px "Microsoft Yahei", 宋体,"Times New Roman", Times, serif;
+	color: #515151;
+}
+</style>
+<ul class="subSectionUL" id="SubSectionUL">
+    @foreach (ZL_ViewSonType zt in (List<ZL_ViewSonType>)ViewData["lvsdata"])
+    {
+    <li @StyleName.classon(zt.id)><a liid='@zt.id' litype='@zt.limits' onclick="SubSectionclick(this);">@zt.ShowName</a>
+        <ul class="submenu">
+        @try
+        {
+            foreach (ZL_ViewSonType szt in StyleName.sondt(zt.id))
+            {
+                <li><a liid='@szt.id' litype='@szt.limits' liname='@szt.ShowName' onclick="sonSectionclick(this);">@szt.ShowName</a></li>
+            
+            }
+        }catch{}
+        </ul>
+    </li>
+    }
+</ul>
+<!--  下拉菜单 end  -->
+<div class="clear"></div>

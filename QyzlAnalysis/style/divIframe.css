@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background: #f5f5f5;
+	padding-bottom: 20px;
+}
+.divIframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+table{
+	font-size: 12px;
+}
+/* ====== dateName ====== */
+div.formDetail{
+	padding: 0 20px 20px 20px;
+	margin: 20px;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+div.formDetail h1,
+div.formContent h1{
+	font-size: 14px;
+	color: #515151;
+	margin: 20px 0 15px 0;
+}
+div.formDetail table{
+	border: 1px solid #d6d6d6;
+	width: 100%;
+}
+div.formDetail table td{
+	padding: 8px 0 8px 30px;
+	border: 1px solid #d6d6d6;
+}
+div.formDetail table th{
+	font-weight: normal;
+	text-align: right;
+	border: 1px solid #d6d6d6;
+	width: 20%;
+	padding-right: 30px;
+	background: #eee;
+}
+div.formDetail table label{
+	margin-right: 20px;
+}
+div.formDetail table label input{
+	margin-right: 5px;
+}
+div.formDetail table input[type="text"]{
+	width: 300px;
+	height: 18px; 
+	line-height: 18px;
+	text-indent: 5px;
+	padding: 3px 0;
+	border: 1px solid #d6d6d6;
+}
+div.formDetail table input[type="text"]:focus{
+	width: 500px;
+	transition: width 0.5s ease 0;
+	-moz-transition: width 0.5s ease 0;
+	-webkit-transition: width 0.5s ease 0;
+	-o-transition: width 0.5s ease 0;
+}
+div.formDetail table select{
+	width: 302px;
+	height: 26px;
+	border: 1px solid #d6d6d6;
+}
+div.formBtn{
+	padding: 10px 0 0 20%;
+}
+div.formBtn img{
+	float: left;
+	margin: 0 0 0 30px;
+}
+
+
+div.formContent{
+	padding: 0 20px 20px 20px;
+	margin: 0px 20px;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+div.formContent table{
+	width: 100%;
+	border: 1px solid #d6d6d6;
+	table-layout: fixed;
+}
+div.formContent table thead td{
+	background: #eee;
+}
+div.formContent table td{
+	border: 1px solid #d6d6d6;
+	padding: 10px 0;
+	word-break: break-all;
+}
+div.formContent table th{
+	font-weight: normal;
+	border: 1px solid #d6d6d6;
+}

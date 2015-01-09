@@ -1,0 +1,172 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>区域经济知识产权分析系统-首页</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;">
+<link href="../../style/base.css" rel="stylesheet" type="text/css" />
+<link href="../../style/index.css" rel="stylesheet" type="text/css" />
+<script src="../../Scripts/jquery-1.9.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#quit").click(Quit);
+        $("#zl").parent().find("ul").find("li").each(function(){
+           $(this).slideToggle();
+          });
+        $("#ecnomic").click(function(){
+          $(this).parent().find("ul").find("li").each(function(){
+           $(this).slideToggle();
+          });
+         });
+        $("#zl").click(function(){
+          $(this).parent().find("ul").find("li").each(function(){
+           $(this).slideToggle();
+          });
+         });
+    });
+    function QyAddShow(a){
+        var href=$(a).attr("href");
+        $("#ifshow").remove();
+        //$("#ifshow").attr("src",href);
+    }
+    function Quit() {
+        $.getJSON("/Home/Quit?uname=@ViewData["UName"]",null, function (jsobj) {
+                   switch (jsobj.statu) {
+                   case "ok":
+                            alert(jsobj.msg);
+                            window.location.href=("../../" + jsobj.backurl + "");
+                            break;
+                   case "fail":
+                              alert(jsobj.msg);
+                              break;
+                   }
+         });
+    }
+</script>
+<style type="text/css">
+<!--
+
+div.container
+{
+    overflow-y: hidden;
+}
+.dis
+{
+    display:none
+    }
+-->
+</style>
+</head>
+<body>
+
+
+
+<!--  sidebar  -->
+<div class="sidebar fl oh">
+	
+    <div class="areaImage tc oh">
+    	<ul>
+        	<li><img src="../../img/login-logo.png"></li>
+            <li style="margin: 17px 0 -2px 0;"><img src="../../img/index-webName-zh.png"></li>
+            <li><img src="../../img/index-webName-us.png"></li>
+        </ul>
+    </div>
+	<div class="clear"></div>
+    
+    <!--  栏目树  -->
+    <div class="columnTree oh">
+		<ul>
+        	<li class="" ><a href="#" class="jjsjlr" id="ecnomic"><img src="../../img/icon-sjlr.png" />经济数据录入</a>
+            	<ul>
+                    <li><a href="/Add_QYData/QY_Unit" class="dwlr" target="mainFrame" onclick="QyAddShow(this)"><img src="../../img/icon-jjsj-20 .png" />单位录入</a></li>
+                    <li><a href="/Add_QYData/QY_DataType" class="zlblr" target="mainFrame" onclick="QyAddShow(this)"><img src="../../img/icon-sjlr-3.png" />总类别录入</a></li>
+                    <li><a href="/Add_QYData/QY_SonDataType" class="zlblr2" target="mainFrame"  onclick="QyAddShow(this)"><img src="../../img/icon-sjlr-2.png" />子类别录入</a></li>
+                    <li><a href="/Add_QYData/QY_YearNum" class="nfsjlr" target="mainFrame" onclick="QyAddShow(this)"><img src="../../img/icon-jjsj-8 .png" />年份数据录入</a></li>
+            	</ul>
+            </li>
+        	<li class=""><a href="#" class="zlsjlr" id="zl"><img src="../../img/icon-zdysj.png" />专利数据录入</a>
+                 <ul>
+                    <li><a href="/Add_ZLData/ZL_DataType" class="dwlr" target="mainFrame" onclick="QyAddShow(this)"><img src="../../img/icon-sjlr-5.png" />专利主类型录入</a></li>
+                    <li><a href="/Add_ZLData/ZL_Classify" class="zlblr" target="mainFrame" onclick="QyAddShow(this)"><img src="../../img/icon-sjlr-4.png" />专利分类录入</a></li>
+                    <li><a href="/Add_ZLData/ZL_ClassifyData" class="zlblr2" target="mainFrame"  onclick="QyAddShow(this)"><img src="../../img/icon-jjsj-9 .png" />专利分类数据录入</a></li>
+                    <li><a href="/Add_ZLData/ZL_Data" class="nfsjlr" target="mainFrame" onclick="QyAddShow(this)"><img src="../../img/icon-jjsj-14 .png" />专利数据录入</a></li>
+                    <li><a href="/Add_ZLData/ZL_GsCompany" class="nfsjlr" target="mainFrame" onclick="QyAddShow(this)"><img src="../../img/icon-jjsj-17 .png" />规模上的公司录入</a></li>
+            	</ul>
+            </li>
+        	@*<li class=""><a href="#" class="sjgl"><img src="../../img/icon-jjsj-1 .png" />数据管理</a></li>*@
+		</ul>
+
+	</div>
+    <!--  栏目树 end  -->
+    <div class="clear"></div>
+    
+    
+    
+
+
+
+</div>
+<!--  sidebar end  -->
+
+
+<!--  rightArea  -->
+<div class="rightArea fr oh">
+
+    <!--  topNav  -->
+    <div class="topNav oh">
+    	<ul>
+            <!--  topNav Fl  -->
+        	<li class="fl oh">
+            
+            	<div class="refresh fl oh"><a href="#" class="refresh">刷新页面</a></div>
+                <div class="stationSearch fl oh dis">
+                	<input type="text" placeholder="输入关键字搜索">
+                    <input type="image" src="../../img/icon-search.png" style="margin-top: 6px;">
+                </div>
+                
+            </li>
+            <!--  topNav Fl end  -->
+            
+            <!--  topNav Fr  -->
+            <li class="fr oh">
+            
+            	<div class="memberInfo fl">
+                	<img src="../../img/defaultPhoto.jpg" class="memberPhoto">
+                    <h5>用户：@ViewData["UName"].ToString()</h5>
+                    <p>权限：@ViewData["URole"].ToString()</p>
+                </div>
+                <div class="webSite oh fr"><a href="../QyTable/Index" class="webSite">数据分析</a></div>
+            	<div class="login oh fl"><a id="quit" href="javascript:void(0)" class="exitLogin">退出登录</a></div>
+                
+            </li>
+            <!--  topNav Fr end  -->
+        </ul>   
+    </div>
+    <!--  topNav end  -->
+    
+    
+    <!--  container  -->
+    <div class="container oh">
+    <iframe id="ifshow" src="/Home/Show" width="100%" height="100%" scrolling="auto" frameborder="0" class="divIframe" allowTransparency="true"></iframe>
+    <iframe id="ifadd" name="mainFrame" width="100%" height="100%" scrolling="auto" frameborder="0" class="divIframe" allowTransparency="true" ></iframe>
+    
+    </div>
+    <!--  container end  -->
+
+	<!--  footer  -->
+    <div class="footer oh tc">
+    	<p>Copyright© 2004-2014.SteelHome.cn. All Rights Reserved</p>
+	</div>
+    <!--  footer end  -->
+
+
+</div>
+<!--  rightArea end  -->
+
+
+</body>
+</html>

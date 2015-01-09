@@ -1,0 +1,425 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="../../js/custom.js" type="text/javascript"></script>
+<title>QY_YearNum</title>
+<style type="text/css">
+<!--
+body{
+	font: 12px "Microsoft Yahei", 宋体,"Times New Roman", Times, serif;
+	color: #515151;
+}
+/* ====== dateName ====== */
+div.formDetail{
+	padding: 0 20px 20px 20px;
+	margin: 20px;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+div.formDetail h1,
+div.formContent h1{
+	font-size: 14px;
+	color: #515151;
+	margin: 20px 0 15px 0;
+}
+div.formDetail table{
+	border: 1px solid #d6d6d6;
+	width: 100%;
+}
+div.formDetail table td{
+	padding: 8px 0 8px 30px;
+	border: 1px solid #d6d6d6;
+}
+div.formDetail table th{
+	font-weight: normal;
+	text-align: right;
+	border: 1px solid #d6d6d6;
+	width: 20%;
+	padding-right: 30px;
+	background: #eee;
+}
+div.formDetail table label{
+	margin-right: 20px;
+}
+div.formDetail table label input{
+	margin-right: 5px;
+}
+div.formDetail table input[type="text"]{
+	width: 300px;
+	height: 18px; 
+	line-height: 18px;
+	text-indent: 5px;
+	padding: 3px 0;
+	border: 1px solid #d6d6d6;
+}
+div.formDetail table input[type="text"]:focus{
+	width: 500px;
+	transition: width 0.5s ease 0;
+	-moz-transition: width 0.5s ease 0;
+	-webkit-transition: width 0.5s ease 0;
+	-o-transition: width 0.5s ease 0;
+}
+div.formDetail table select{
+	width: 302px;
+	height: 26px;
+	border: 1px solid #d6d6d6;
+}
+div.formBtn{
+	padding: 10px 0 0 20%;
+}
+div.formBtn img{
+	float: left;
+	margin: 0 0 0 30px;
+}
+
+
+div.formContent{
+	padding: 0 20px 20px 20px;
+	margin: 0px 20px;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+div.formContent table{
+	width: 100%;
+	border: 1px solid #d6d6d6;
+	table-layout: fixed;
+}
+div.formContent table thead td{
+	background: #eee;
+}
+div.formContent table td{
+	border: 1px solid #d6d6d6;
+	padding: 10px 0;
+	word-break: break-all;
+}
+div.formContent table th{
+	font-weight: normal;
+	border: 1px solid #d6d6d6;
+}
+
+div.formCustomShow
+{
+   
+    height: 500px;
+	transition: width 0.5s ease 0;
+	-moz-transition: width 0.5s ease 0;
+	-webkit-transition: width 0.5s ease 0;
+	-o-transition: width 0.5s ease 0;
+	padding: 20px;
+	
+}
+div.divSame
+{
+    width: 49%;
+    }
+div.divSame table td{
+	padding-left: 20px;
+	border: 1px solid #d6d6d6;
+}
+div.divSame table th{
+	width: 120px;
+	padding-right: 20px;
+}
+div.divSame table input[type="text"]{
+	width: 200px;
+	height: 18px; 
+	line-height: 18px;
+	text-indent: 5px;
+	padding: 3px 0;
+	border: 1px solid #d6d6d6;
+}
+div.divSame table input[type="text"]:focus{
+	width: 200px;
+}
+div.divSame table select{
+	width: 202px;
+	height: 26px;
+	border: 1px solid #d6d6d6;
+}
+
+div.formContent table.dataForm1{
+	width: 100%;
+	border: 1px solid #d6d6d6;
+	table-layout: fixed;   
+}
+div.formContent table.dataForm1 td,
+div.formContent table.dataForm1 th{
+	border: 1px solid #d6d6d6;
+	font-weight: normal;
+}
+div.formContent table.dataForm1 th{
+	width: 80px;
+}
+div.formContent table.dataForm1 td{
+	height: 30px; 
+	padding: 4px 0; 
+}
+div.formContent table.dataForm1 thead th,
+div.formContent table.dataForm1 thead td{
+	background: #cff url(../img/table-dataForm-thead.jpg) repeat-x 0 bottom;
+	border-bottom: 1px solid #8b89b1;
+	
+}
+div.formContent table.dataForm1 thead td img{
+	margin-left: 3px;
+}
+div.formContent table.dataForm1 label input[type="checkbox"]{
+	margin-right: 5px;
+}
+div.formContent table.dataForm1 input[type="text"]{
+	width: 100%;
+	border: 0;
+	outline: 0;
+	text-align: center;
+	color: #515151;
+	background: transparent;
+}
+div.formContent table.dataForm1 input[type="text"]:focus{
+	color: #c00;
+}
+.Customdis
+{
+    display:none;
+    }
+ 
+div.operate img{
+	margin: 0 5px;
+	display: inline;
+}
+
+
+input.writeName{
+	width: 150px;
+	height: 18px; 
+	line-height: 18px;
+	text-indent: 5px;
+	display: inline;
+	padding: 3px 0;
+	border: 1px solid #d6d6d6;
+}
+input.writeName:focus{
+	width: 200px;
+	transition: width 0.5s ease 0;
+	-moz-transition: width 0.5s ease 0;
+	-webkit-transition: width 0.5s ease 0;
+	-o-transition: width 0.5s ease 0;
+}
+
+
+-->
+</style>
+<script type="text/javascript">
+    $(function () {
+        //总数据类别选项改变
+        $("#father").change(function () {
+            var dtid = $(this).find("option:selected").val();
+            $.getJSON("../Add_QYData/ChangeQY_YearNum/" + dtid, null, function (jsobj) {
+                var html = '';
+                for (var i = jsobj.length - 1; i >= 0; i--) {
+                    html = "<option  value=\"" + jsobj[i].id + "\">" + jsobj[i].name + "</option>" + html;
+                }
+                $("#son").html(html);
+                $("#unit option").each(function () {
+                    if ($(this).val() == jsobj[0].unit) {
+                        //$(this).attr('selected',true);
+                        this.selected = 'selected';
+                    }
+                });
+            });
+        });
+        //子数据类别选项改变
+        $("#son").change(function () {
+            var id = $(this).find("option:selected").val();
+            $.getJSON("../Add_QYData/ChangeQY_YearNum2/" + id, null, function (jsobj) {
+                $("#unit option").each(function () {
+                    if ($(this).val() == jsobj) {
+                        this.selected = 'selected';
+                    }
+                });
+            });
+        });
+        //
+        $("#zlfather").change(function () {
+            var id = $(this).find("option:selected").val();
+            $.getJSON("/CustomData/zlfather_change/" + id, null, function (jsobj) {
+                //alert(jsobj.sel1 + jsobj.sel2 + jsobj.sel3);   sonshow zlson
+                $("#zlson").html(jsobj.sel1);
+                $("#sonshow").html(jsobj.sel2);
+                $("#sel_view").html(jsobj.sel3);
+            });
+        })
+        //导出excel
+        $("#outexcel").click(OutExcel);
+        //专利数据改变
+        $("#sonshow").change(function () {
+            //alert("hi");
+            var id = $(this).find("option:selected").val();
+            $.getJSON("/CustomData/sonshow_change/" + id, null, function (jsobj) {
+                // alert(jsobj.data);
+                $("#sel_view").html(jsobj.data);
+            });
+        });
+    });
+    function OutExcel() {
+        var rowarry = new Array();
+        var $firsrrow = $($("#tbList tr")[0]);
+        var firstrowcontent = "";
+        for (var s = 0; s < $firsrrow.find("td").length-1; s++) {
+            firstrowcontent = firstrowcontent + $($firsrrow.find("td")[s]).html() + ";";
+        }
+        firstrowcontent = firstrowcontent.substring(0, firstrowcontent.length - 1);
+        rowarry.push(firstrowcontent);
+        var checkedrow = new Array();
+        var m = 0;
+        for (var n = 0; n < $("#tbList input[type=\"checkbox\"]").length; n++) {
+            if ($("#tbList input[type=\"checkbox\"]")[n].checked) {
+                m++;
+               checkedrow.push($($("#tbList input[type=\"checkbox\"]")[n]).parent().parent().parent());
+            }
+        }
+        if (m == 0) {
+            alert("未选中无法导出表格");
+            return;
+        }
+        else {
+            for (var i = 0; i < checkedrow.length; i++) {
+                var rowcontent = "";
+                var $row = $(checkedrow[i]);
+                for (var j = 0; j < $row.find("input").length; j++) {
+                    if (j != 0) {
+                        rowcontent = rowcontent + $($row.find("input")[j]).val()+";";
+                    }
+                    else {
+                        var str = $($row.find("input")[j]).parent().html();
+                        var regrule = ">[\\w\\W]*";
+                        str = str.match(regrule).toString().substring(1,str.length);
+                        rowcontent = rowcontent + str+";";
+                    }
+                }
+                rowcontent = rowcontent.substring(0, rowcontent.length - 1);
+                rowarry.push(rowcontent);
+            }
+        }
+        //alert(rowarry.length);
+        $.getJSON("/CustomData/ExcelOutput", "data=" + rowarry + "", function (jsobj) {
+            //alert(jsobj);
+            host = window.location.host;
+            var url ="http://"+host + jsobj.toString();
+            var url2 = "http://localhost:5788" + jsobj.toString();
+           // alert(url + "____" + url2);
+             window.location = url;
+            //alert(host + jsobj.toString());
+        });
+      }
+</script>
+<!--  图表  -->
+
+<div class="formCustomShow Customdis" id="formCustomShow">
+
+
+</div>
+<!--  图表 end  -->
+<div class="clear"></div>
+
+<div class="formDetail formCustom oh">
+    <!--  经济数据选择  -->
+    <div class="divJjsj divSame fl oh">
+    	<h1>经济数据选择</h1> 
+    	<div class="clear"></div>
+         <form id="f1">
+         <table>
+        	<tr>
+            	<th>总数据类别</th>
+                <td>@Html.DropDownList("father", ViewData["datatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+        	<tr>
+            	<th>子数据类别</th>
+                <td>@Html.DropDownList("son", ViewData["sondatatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+         </table>
+         <div class="clear"></div>
+        
+        <div class="formBtn oh">
+            <img id="jlbtn" class="btn" cltype="jj" type="button" value="添加" src="../../img/btn-add-data.png" />
+        </div>
+
+        <div class="clear"></div>
+       
+
+         </form>
+         
+	
+    </div>
+    <!--  经济数据选择 end  -->
+    
+    <!--  专利数据选择  -->
+    <div class="divZlsj divSame fr oh">
+    	<h1>专利数据选择</h1>
+    	<div class="clear"></div>
+         <form id="f1">
+         <table>
+        	<tr>
+            	<th>专利数据类别</th>
+                <td>@Html.DropDownList("zlfather", ViewData["zldatatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+        	<tr>
+            	<th>专利子数据类别</th>
+                <td>@Html.DropDownList("zlson", ViewData["zlviewtype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+            <tr> 
+            	<th>专利数据</th>
+                <td>@Html.DropDownList("sonshow", ViewData["zlviewsontype_sellist"] as IEnumerable<SelectListItem>)<br />
+                <select id="sel_view" style="margin-top:10px">@MvcHtmlString.Create(@ViewData["sel_view"].ToString())</select></td>
+            </tr>
+         </table>
+         <div class="clear"></div>
+
+        <div class="formBtn oh">
+            <img id="zlbtn1" class="btn" cltype="zl" src="../../img/btn-add-data.png" />
+        </div>
+         </form>
+         
+	
+    </div>
+    <!--  专利数据选择 end  -->
+
+    
+
+</div>
+<!--  formDetail end  -->
+    <div class="clear"></div>
+
+    <div class="operate tc oh" style="margin-bottom: 20px;">
+        <input type="text" placeholder="自定义数据表名称" class="writeName" id="writeName" />
+        <a href="#" id="creat-echart"><img src="../img/btn-create-chart.png"></a>
+        <a href="#" id="outexcel"><img src="../../img/btn-export-excel.png" /></a>
+        <!--<a href="#"><img src="../img/btn-delete-data.png"></a>
+        <a href="#"><img src="../img/btn-save-data.png"></a> -->
+    </div>
+    <div class="clear"></div>
+
+    <div class="formContent oh mt10">
+		
+        <h1>年份数据列表(数据项为0代表缺失数据)</h1>
+        
+        <div class="clear"></div>
+         <table id="tbList" class="tc dataForm1">
+         	<thead>
+                <tr>
+                <td>数据项/年份</td>
+                @foreach (string y in (List<string>)ViewData["year_list"])
+                {
+                	<td>@y</td>
+                    }
+                    <td>图形选择</td>
+                </tr>
+         	</thead>
+            <tbody id="thtr">
+               
+            </tbody>
+         </table>
+         <div id="pager"></div>
+         
+       </div>
+    <!--  formContent end  -->
+    <div class="clear"></div>

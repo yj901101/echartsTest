@@ -1,0 +1,183 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	background-image: url(../img/login-background.jpg);
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* ============ whiteBg ============ */
+div.whiteBg{
+	background-color: rgba(255,255,255,0.1);
+	background: url(../img/icon-whiteBg-10.png) repeat\9;
+	width: 100%;
+	height: 400px;	
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 45%;
+	margin-top: -200px;
+}
+
+div.whiteBg .whiteLine{
+	width: 1px;
+	background-color: rgba(255,255,255,0.3);
+	background: url(../img/icon-whiteBg-30.png) repeat-y\9;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: 0;
+	z-index: 9;
+	display: none\9;
+}
+
+@media all and (max-width: 700px){
+	.loginWindow{
+		left: 50%;
+	}
+	div.whiteBg .whiteLine{
+		display: none;
+	}
+	div.pieChart{
+		display: none;
+	}
+}
+@media all and (min-width: 701px) and (max-width: 1000px){
+	.loginWindow{
+		left: 75%;
+	}
+	div.pieChart{
+		right: 47%;
+	}
+}
+@media all and (min-width: 1001px) and (max-width: 1300px){
+	.loginWindow{
+		left: 73%;
+	}
+	div.pieChart{
+		right: 52%;
+	}
+}
+@media all and (min-width: 1301px){
+	.loginWindow{
+		left: 70%;
+	}
+	div.pieChart{
+		right: 55%;
+	}
+}
+
+/* ====== pieChart 饼状图 ====== */
+div.pieChart{
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	top: -40px;
+	z-index: 9;
+	display: none\9;
+}
+
+
+
+
+
+
+
+/* ====== loginWindow 登陆窗口 ====== */
+.loginWindow{
+	position: absolute;
+	width: 340px;
+	top: 24px;
+	margin-left: -170px;
+	z-index: 10;
+	left: 50%\9;
+}
+.loginWindow .areaImg{
+	height: 150px;
+}
+.loginWindow .areaImg li{
+	clear: both;
+	overflow: hidden;
+}
+.loginWindow .areaInput{
+	background: url(../img/login-window-bg.png) no-repeat center 0;
+	width: 325px;
+	padding-top: 20px;
+}
+.loginWindow .areaInput input{
+	border: none;
+	outline: 0;
+}
+.loginWindow .areaInput li{
+	clear: both;
+	overflow: hidden;
+	background: url(../img/login-areaInput-li.png) repeat-x 0 bottom;
+	padding: 7px 0 10px 0;
+}
+.loginWindow .areaInput li input[type="text"],
+.loginWindow .areaInput li input[type="password"]{
+	height: 18px;
+	padding: 3px 0 3px 56px;
+	border: none;
+	width: 250px;
+}
+.loginWindow .areaInput li input[type="text"]{
+	background: url(../img/login-areaInput-username.png) no-repeat 13px center;
+}
+.loginWindow .areaInput li input[type="password"]{
+	background: url(../img/login-areaInput-password.png) no-repeat 15px center;
+}
+.loginWindow .areaInput li.yzm input{
+	float: left;
+	width: 130px;
+	background: none;
+}
+.loginWindow .areaInput li.yzm img{
+	float: left;
+	width: 60px;
+	height: auto;
+	margin: 0px 8px 0 5px;
+}
+.loginWindow .areaInput li.yzm a{
+	float: left;
+	text-decoration: underline;
+	color: #2473de;
+	margin-top: 3px;
+}
+.loginWindow .areaInput li.memberpsd{
+	padding: 6px 0 0 56px;
+	background: none;
+}
+.loginWindow .areaInput li.submit{
+	margin-top: 15px;
+	background: none;
+	padding: 0;
+	position: relative;
+}
+.loginWindow .areaInput li.submit label{
+	position: absolute;
+	color: #999;
+	top: 14px;
+	left: 15px;
+	cursor: pointer;
+}
+.loginWindow .areaInput li.submit label input{
+	margin-right: 5px;
+}
+.loginWindow .areaInput li.submit img{ cursor: pointer;}
+
+/* ============ footer ============= */
+div.footer{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 50px;
+}
