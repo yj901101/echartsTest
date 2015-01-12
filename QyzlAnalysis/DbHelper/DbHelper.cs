@@ -14,7 +14,7 @@ namespace QyzlAnalysis.DbHelper
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                DataSet ds = new DataSet();
+                DataSet ds =  new DataSet();
                 try
                 {
                     connection.Open();
