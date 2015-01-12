@@ -383,6 +383,35 @@ input.writeName:focus{
     </div>
     <!--  专利数据选择 end  -->
 
+    <!--  科教数据选择  -->
+    <div class="divJjsj divSame fl oh">
+    	<h1>科教数据选择</h1> 
+    	<div class="clear"></div>
+         <form id="f1">
+         <table>
+        	<tr>
+            	<th>总数据类别</th>
+                <td>@Html.DropDownList("tec", ViewData["datatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+        	<tr>
+            	<th>子数据类别</th>
+                <td>@Html.DropDownList("tec1", ViewData["sondatatype_sellist"] as IEnumerable<SelectListItem>)</td>
+            </tr>
+         </table>
+         <div class="clear"></div>
+        
+        <div class="formBtn oh">
+            <img id="jlbtn" class="btn" cltype="jj" type="button" value="添加" src="../../img/btn-add-data.png" />
+        </div>
+
+        <div class="clear"></div>
+       
+
+         </form>
+         
+	
+    </div>
+    <!--  科教数据选择 end  -->
     
 
 </div>
