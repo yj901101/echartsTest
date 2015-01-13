@@ -99,6 +99,7 @@
     <Compile Include="Controllers\Add_ZLDataController.cs" />
     <Compile Include="Controllers\CreateTabController.cs" />
     <Compile Include="Controllers\CustomDataController.cs" />
+    <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\GsProTabController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
