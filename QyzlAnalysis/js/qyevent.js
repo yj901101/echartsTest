@@ -338,7 +338,7 @@ function createChord(obj) {
     }
     require([
                 'echarts',
-                 'echarts/chart/chord',
+                'echarts/chart/chord',
                 'echarts/chart/force'
            
             ],
@@ -346,6 +346,9 @@ function createChord(obj) {
                 var myChart_Category = ec.init(document.getElementById('div_pieCategory'));
                 myChart_Category.setOption(mainoption);
             })
+}
+function GradeSplashes() { 
+      
 }
 function requerpic() {
     mainoption = {

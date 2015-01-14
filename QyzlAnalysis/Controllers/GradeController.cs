@@ -16,9 +16,9 @@ namespace QyzlAnalysis.Controllers
         {
             return View();
         }
-        public string Denominato()
+        public string Denominato(int id)
         {
-            int id = 2;
+            string s1 = "";
             List<QY_SonDataType> lson = qe.QY_SonDataType.Where(u => u.dtid == id).ToList();
             Dictionary<int?, int?> unit = removeDiffUnit(lson);//获取的id对应的unit.
             List<Dictionary<string, decimal?>> ldic = new List<Dictionary<string, decimal?>>();
@@ -54,18 +54,16 @@ namespace QyzlAnalysis.Controllers
                 {
                     ls.Add("[{\"name\",\"" + lsname[i] + "\"," + resultCount(ldic[0], ldic[i]) + "}]");
                 }
-                string s1 = "";
                 foreach (string strjosn in ls)
                 {
                     s1 += strjosn + "|";
                 }
-                s1 = s1 + "";
             }
             else
             {
 
             }
-            return "";
+            return s1;
         }
         public Dictionary<int?, int?> removeDiffUnit(List<QY_SonDataType> lson)//取适合的单位
         {
