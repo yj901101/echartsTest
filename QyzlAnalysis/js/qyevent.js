@@ -347,8 +347,65 @@ function createChord(obj) {
                 myChart_Category.setOption(mainoption);
             })
 }
-function GradeSplashes() { 
-      
+function GradeSplashes() {//生成散点图
+    xaxisParam = new Array();
+    yaxisParam = new Array();
+    seriesData = new Array();
+    legendData = new Array();
+    var nameList = new Array();
+    var numList = new Array();
+    var yearList = new Array();
+    $.ajax({
+        type: "post", url: "../Grade/Denominato", data: { "id": 1 }, dataType: "json", async: false,
+        success: function (result) {
+            $(result).each(function () {
+                nameList.push(this.name);
+                numList.push(this.num);
+                yearList.push(this.year);
+            })
+        }
+    })
+    for (var i = 0; i < nameList.length; i++) {
+        var Sdata = new Object();
+        Sdata.name = nameList[i];
+        Sdata.type = "scatter";
+        var SdataList = new Array();
+        var numberVal = numList[i].split("_");
+        var yearVal = yearList.split("_");
+        for (var j = 0; j < yearVal.length; j++) {
+            var innerSdate = new Array();
+            innerSdate.push(yearVal[j]);
+            innerSdate.push(numList[j]);
+            SdataList.push(innerSdate);
+        }
+        Sdata.data = SdataList;
+        seriesData.push(Sdata);
+    }
+    legendData = nameList;
+    mainoption = {
+        xAxis : [
+        {
+            type : 'value',
+            scale:true
+        }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                scale:true
+            }
+        ],
+        legend:legendData,
+        series: seriesData
+    };
+    require([
+            'echarts',
+            'echarts/chart/scatter'
+        ],
+        function (ec) {
+            var myChart_Category = ec.init(document.getElementById('div_pieCategory'));
+            myChart_Category.setOption(mainoption);
+        })
 }
 function requerpic() {
     mainoption = {

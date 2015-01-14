@@ -22,7 +22,6 @@ namespace QyzlAnalysis.Controllers
             List<QY_SonDataType> lson = qe.QY_SonDataType.Where(u => u.dtid == id).ToList();
             Dictionary<int?, int?> unit = removeDiffUnit(lson);//获取的id对应的unit.
             List<Dictionary<string, decimal?>> ldic = new List<Dictionary<string, decimal?>>();
-            List<string> ls = new List<string>();
             List<string> lsname = new List<string>();
             string x = countDenominato(unit);
             if (x.IndexOf("|") != -1)
@@ -50,14 +49,15 @@ namespace QyzlAnalysis.Controllers
                         ldic.Add(dic);
                     }
                 }
+                s1 = "[";
                 for (int i = 1; i < ldic.Count; i++)
                 {
-                    ls.Add("[{\"name\",\"" + lsname[i] + "\"," + resultCount(ldic[0], ldic[i]) + "}]");
+                    s1+="{\"name\",\"" + lsname[i] + "\"," + resultCount(ldic[0], ldic[i]) + "},";
                 }
-                foreach (string strjosn in ls)
-                {
-                    s1 += strjosn + "|";
+                if (s1.EndsWith(",")) {
+                    s1 = s1.Substring(0, s1.Length - 1);
                 }
+                s1 += "]";
             }
             else
             {
@@ -193,7 +193,7 @@ namespace QyzlAnalysis.Controllers
             {
                 stryear = stryear.Substring(0, stryear.Length - 1);
             }
-            return "\"str\":\"" + strconn + "\",\"year\":\"" + stryear + "\"";
+            return "\"num\":\"" + strconn + "\",\"year\":\"" + stryear + "\"";
         }
         private string newnumber(decimal? num)
         {

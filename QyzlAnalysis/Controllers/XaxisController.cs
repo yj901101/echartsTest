@@ -226,7 +226,7 @@ namespace QyzlAnalysis.Controllers
             }
             return false;
         }
-        private string newnumber(decimal? num) {
+        private string newnumber(decimal? num) {//去除小数点后面的0
             return double.Parse(num.ToString()).ToString();
         }
         private int? wunit(List<int?> l) {
