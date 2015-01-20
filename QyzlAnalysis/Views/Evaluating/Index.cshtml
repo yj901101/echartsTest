@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+<style type="text/css">
+    .valueName{
+	background-color: #f5f5f5;
+	padding: 10px 0;
+    }
+    .valueName li{
+	    display: inline;
+	    margin: 0 30px;
+    }
+    .valueDate
+    {
+        padding: 20px;
+    }
+    .valueDate input[type="text"]{
+	    width: 80px;
+	    height: 18px;
+	    line-height: 18px;
+	    padding: 3px 0;
+	    text-indent: 5px;
+	    border: 1px solid #d6d6d6;
+	    margin-left: 5px;
+    }
+    .valueInput{
+	    padding: 10px 0;
+	    margin: 60px 0;
+    }
+    .valueResult{
+	    background: #f5f5f5;
+	    min-height: 100px;
+	    line-height: 25px;
+	    padding: 20px 0;
+    }
+</style>
+<!--   价值数据  -->
+<div class="valueDate oh">
+            
+    <div class="valueName tc oh">
+        <ul>
+            <li>α(法律价值)：<input type="text" placeholder="20%"></li>
+            <li>β(技术价值)：<input type="text" placeholder="20%"></li>
+            <li>γ(经济价值)：<input type="text" placeholder="60%"></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+                
+    <div class="valueInput tc oh">
+        及格分：<input type="text" placeholder="100%">
+    </div>
+    <div class="clear"></div>
+                
+    <div class="valueResult tc oh">
+        马鞍山专利及格率为 @ViewData["count"]
+                
+    </div>
+    <div class="clear"></div>
+            
+</div>
+<!--  价值数据 end  -->
+<div class="clear"></div>
+

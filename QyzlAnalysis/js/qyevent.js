@@ -14,6 +14,7 @@
         }
     })
     $(".zlsjblr").click(function () { //专利数据点击
+        $("#Evaluat").html("");
         if (!$("#newdiv").hasClass("dis")) {
             $("#newdiv").addClass("dis");
         }
@@ -38,13 +39,14 @@
         $("#editName").html(titleData);
         createTable();
     })
-    $("#zdysjlr").click(function () {
+    $("#zdysjlr").click(function () {//自定义数据生成
+        $("#Evaluat").html("");
         if ($("#newdiv").hasClass("dis")) {
             $("#newdiv").removeClass("dis");
         }
         if (!$("#olddiv").hasClass("dis")) {
             $("#olddiv").addClass("dis");
-         }
+        }
         $.ajax({
             type: "post",
             url: "../CustomData/Index",
@@ -55,6 +57,17 @@
             }
         })
         $("#divContainer").animate({ scrollTop: document.body.clientHeight + 'px' }, 800);
+    })
+    $("#zlpf").click(function () {//专利评测
+        if (!$("#olddiv").hasClass("dis")) {
+            $("#olddiv").addClass("dis");
+        }
+        $("#newdiv").html("");
+        $.ajax({
+            type: "post", url: "../Evaluating/Index", dataType: "html", success: function (result) {
+                $("#Evaluat").html(result);
+            }
+        })
     })
 })
 var SubSectionclick = function (obj) {
