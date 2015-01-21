@@ -8,17 +8,22 @@ using QyzlAnalysis.DbHelper;
 
 namespace QyzlAnalysis.Controllers
 {
-    public class EvaluatingController : Controller
+    public class EvaluatingAjaxController : Controller
     {
         //
-        // GET: /Evaluating/
+        // GET: /EvaluatingAjax/
+
+        public ActionResult Index()
+        {
+            return View();
+        }
         private static List<List<string>> ldic = new List<List<string>>();
         List<string> dic_fl = new List<string>();
         List<string> dic_js = new List<string>();
         List<string> dic_jj = new List<string>();
         private static int counterIndex = 0;
         private static int[] counter = { 0, 0, 0 }; //用作重置Index 
-        public ActionResult Index()
+        public string ComResult(double flscore, double jsscore, double jjscore, double score)
         {
             ldic = new List<List<string>>();
             dic_fl = new List<string>();
@@ -36,11 +41,11 @@ namespace QyzlAnalysis.Controllers
             /**
              *得到返回的二维数组，index=0的是达到及格分的，index=1的是不达标的
              */
-            List<List<string>> lsstr = StyleName.ComputerScore(ls, 0.2, 0.2, 0.6, 7.0);
-            ViewData["count"] = newnumber(Evaluating.PreForResult(lsstr) * 100) + "%";
-            return View();
+            List<List<string>> lsstr = StyleName.ComputerScore(ls, flscore, jsscore, jjscore, score);
+            return newnumber(Evaluating.PreForResult(lsstr) * 100) + "%";
         }
-        private void setList() {
+        private void setList()
+        {
             dic_fl.Add("有效专利_8"); dic_fl.Add("实质审查_6"); dic_fl.Add("公开发明_4"); dic_fl.Add("失效专利_2");
             dic_js.Add("铁基新材料专利_8"); dic_js.Add("专用汽车产业专利_6"); dic_js.Add("电子信息产业专利_6");
             dic_jj.Add("第二产业_8"); dic_jj.Add("第三产业_6");

@@ -99,6 +99,7 @@
     <Compile Include="Controllers\Add_ZLDataController.cs" />
     <Compile Include="Controllers\CreateTabController.cs" />
     <Compile Include="Controllers\CustomDataController.cs" />
+    <Compile Include="Controllers\EvaluatingAjaxController.cs" />
     <Compile Include="Controllers\EvaluatingController.cs" />
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\GsProTabController.cs" />
@@ -189,6 +190,7 @@
     <Content Include="icon\icon-jjsj-21 .png" />
     <Content Include="icon\icon-jjsj-22 .png" />
     <Content Include="icon\icon-jjsj-23 .png" />
+    <Content Include="icon\icon-jjsj-27 .png" />
     <Content Include="icon\icon-jjsj-3 .png" />
     <Content Include="icon\icon-jjsj-4 .png" />
     <Content Include="icon\icon-jjsj-5 .png" />
@@ -205,6 +207,7 @@
     <Content Include="images\loader.gif" />
     <Content Include="images\qzonebg.gif" />
     <Content Include="img\btn-add-data.png" />
+    <Content Include="img\btn-count.png" />
     <Content Include="img\btn-create-chart.png" />
     <Content Include="img\btn-delete-data.png" />
     <Content Include="img\btn-export-excel.png" />
