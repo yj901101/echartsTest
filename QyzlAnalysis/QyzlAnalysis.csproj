@@ -99,6 +99,7 @@
     <Compile Include="Controllers\Add_ZLDataController.cs" />
     <Compile Include="Controllers\CreateTabController.cs" />
     <Compile Include="Controllers\CustomDataController.cs" />
+    <Compile Include="Controllers\DataTestController.cs" />
     <Compile Include="Controllers\EvaluatingAjaxController.cs" />
     <Compile Include="Controllers\EvaluatingController.cs" />
     <Compile Include="Controllers\GradeController.cs" />

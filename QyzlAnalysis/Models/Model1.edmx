@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="QyzlModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="QyzlModelStoreContainer">
+          <EntitySet Name="DataTest" EntityType="QyzlModel.Store.DataTest" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="QY_DataType" EntityType="QyzlModel.Store.QY_DataType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="QY_Relation" EntityType="QyzlModel.Store.QY_Relation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="QY_SonDataType" EntityType="QyzlModel.Store.QY_SonDataType" store:Type="Tables" Schema="dbo" />
@@ -69,6 +70,15 @@
             <End Role="ZL_ViewType" EntitySet="ZL_ViewType" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="DataTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="years" Type="int" />
+          <Property Name="Ydata" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="QY_DataType">
           <Key>
             <PropertyRef Name="id" />
@@ -200,15 +210,6 @@
           <Property Name="View_name" Type="nvarchar" MaxLength="100" />
           <Property Name="ZDID" Type="int" />
         </EntityType>
-        <!--生成过程中发现错误:
-      警告 6002: 表/视图“Qyzl.dbo.zl_data1”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
-        <!--生成过程中发现错误:
-      警告 6002: 表/视图“Qyzl.dbo.zl_data2”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
-        <!--生成过程中发现错误:
-      警告 6002: 表/视图“Qyzl.dbo.zl_data3”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
         <Association Name="FK__ZL_DataType">
           <End Role="ZL_DataType" Type="QyzlModel.Store.ZL_DataType" Multiplicity="1" />
           <End Role="ZL_DataType1" Type="QyzlModel.Store.ZL_DataType" Multiplicity="0..1" />
@@ -420,6 +421,7 @@
             <End Role="ZL_DataType" EntitySet="ZL_DataType" />
             <End Role="ZL_GsCompany" EntitySet="ZL_GsCompany" />
           </AssociationSet>
+          <EntitySet Name="DataTest" EntityType="QyzlModel.DataTest" />
         </EntityContainer>
         <EntityType Name="QY_DataType">
           <Key>
@@ -720,6 +722,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="DataTest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="years" />
+          <Property Type="Decimal" Name="Ydata" Precision="12" Scale="2" />
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -871,6 +882,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DataTest">
+            <EntityTypeMapping TypeName="QyzlModel.DataTest">
+              <MappingFragment StoreEntitySet="DataTest">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Ydata" ColumnName="Ydata" />
+                <ScalarProperty Name="years" ColumnName="years" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -961,8 +982,8 @@
         </AssociationConnector>
         <AssociationConnector Association="QyzlModel.FK_ZL_ViewName" >
           <ConnectorPoint PointX="6.875" PointY="11.94230224609375" />
-          <ConnectorPoint PointX="9.40625" PointY="11.94230224609375" />
-          <ConnectorPoint PointX="9.40625" PointY="8.5290128580729156" />
+          <ConnectorPoint PointX="9.125" PointY="11.94230224609375" />
+          <ConnectorPoint PointX="9.125" PointY="8.5290128580729156" />
         </AssociationConnector>
         <AssociationConnector Association="QyzlModel.FK_ZL_ViewSonType" >
           <ConnectorPoint PointX="7.375" PointY="10.76684519911859" />
@@ -977,6 +998,7 @@
           <ConnectorPoint PointX="7.375" PointY="5.9040128580729174" />
           <ConnectorPoint PointX="7.75" PointY="5.5290128580729174" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="QyzlModel.DataTest" Width="1.5" PointX="9.375" PointY="9.75" Height="1.7790128580729174" />
       </Diagram>
     </Diagrams>
   </Designer>

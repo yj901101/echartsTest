@@ -14,7 +14,7 @@ namespace QyzlAnalysis.Controllers
         QyzlEntities ta = new QyzlEntities();
         public ActionResult Index()
         {
-            var mess = ta.QY_DataType.ToList();
+            var mess = ta.QY_DataType.Where(u=>u.id<=23).ToList();
             ViewData["DataType"] = mess;
             var zlmess = ta.ZL_DataType.ToList();
             ViewData["ZLDataType"] = zlmess;

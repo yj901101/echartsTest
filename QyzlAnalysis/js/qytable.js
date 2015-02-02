@@ -219,7 +219,7 @@ function createTable() {
         for (var tdnum = 0; tdnum < datanum.length; tdnum++) {
             var datanumber = datanum[tdnum]
             var numdata = datanumber.split("_")[tr1];
-            if (numdata != "") { } else { numdata="0" }
+            if (numdata != undefined && numdata != "") { } else { numdata = "0" }
             tablehtml += "<td>" + numdata + "</td>"
         }
         tablehtml += "</tr>";
