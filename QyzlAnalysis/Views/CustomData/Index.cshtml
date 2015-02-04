@@ -391,17 +391,17 @@ input.writeName:focus{
          <table>
         	<tr>
             	<th>总数据类别</th>
-                <td>@Html.DropDownList("tec", ViewData["datatype_sellist"] as IEnumerable<SelectListItem>)</td>
+                <td>@Html.DropDownList("tec", ViewData["kj_datatype_sellist"] as IEnumerable<SelectListItem>)</td>
             </tr>
         	<tr>
             	<th>子数据类别</th>
-                <td>@Html.DropDownList("tec1", ViewData["sondatatype_sellist"] as IEnumerable<SelectListItem>)</td>
+                <td>@Html.DropDownList("tec1", ViewData["kj_sondatatype_sellist"] as IEnumerable<SelectListItem>)</td>
             </tr>
          </table>
          <div class="clear"></div>
         
         <div class="formBtn oh">
-            <img id="jlbtn" class="btn" cltype="jj" type="button" value="添加" src="../../img/btn-add-data.png" />
+            <img id="kjbtn" class="btn" cltype="kj" type="button" value="添加" src="../../img/btn-add-data.png" />
         </div>
 
         <div class="clear"></div>

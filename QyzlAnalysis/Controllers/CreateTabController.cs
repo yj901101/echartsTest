@@ -26,6 +26,10 @@ namespace QyzlAnalysis.Controllers
             {
                 return ZlRjson(id);
             }
+            else if (valtype == "kj")
+            {
+                return JjRjson(int.Parse(id));
+            }
             else {
                 return "";
             }

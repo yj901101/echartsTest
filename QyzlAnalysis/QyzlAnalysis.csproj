@@ -274,9 +274,9 @@
     <Content Include="img\icon-whiteBg-30.png" />
     <Content Include="img\icon-yzm.jpg" />
     <Content Include="img\icon-zdysj.png" />
-    <Content Include="img\icon-zlsj-1 .png" />
-    <Content Include="img\icon-zlsj-2 .png" />
     <Content Include="img\icon-zlsj-3 .png" />
+    <Content Include="img\icon-zlsj-2 .png" />
+    <Content Include="img\icon-zlsj-1 .png" />
     <Content Include="img\icon-zlsj.png" />
     <Content Include="img\index-webName-us.png" />
     <Content Include="img\index-webName-zh.png" />
@@ -296,6 +296,7 @@
     <Content Include="img\qzonebg.gif" />
     <Content Include="img\table-dataForm-thead.jpg" />
     <Content Include="img\welcome-bg.jpg" />
+    <Content Include="img\maszl.png" />
     <Content Include="js\changeencord.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\echarts-2.0.4\src\chart.js" />

@@ -86,6 +86,7 @@
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" MaxLength="100" />
           <Property Name="defaultUnit" Type="int" />
+          <Property Name="defaultType" Type="int" />
         </EntityType>
         <EntityType Name="QY_Relation">
           <Key>
@@ -431,6 +432,7 @@
           <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Type="Int32" Name="defaultUnit" />
           <NavigationProperty Name="QY_SonDataType" Relationship="QyzlModel.FK_QY_SonDataType_QY_DataType" FromRole="QY_DataType" ToRole="QY_SonDataType" />
+          <Property Type="Int32" Name="defaultType" />
         </EntityType>
         <EntityType Name="QY_SonDataType">
           <Key>
@@ -740,6 +742,7 @@
           <EntitySetMapping Name="QY_DataType">
             <EntityTypeMapping TypeName="QyzlModel.QY_DataType">
               <MappingFragment StoreEntitySet="QY_DataType">
+                <ScalarProperty Name="defaultType" ColumnName="defaultType" />
                 <ScalarProperty Name="defaultUnit" ColumnName="defaultUnit" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />

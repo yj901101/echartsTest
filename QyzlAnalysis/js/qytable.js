@@ -8,6 +8,7 @@ $(document).ready(function () {
 var myChart_Category;
 $(function () {
     $(".zlblr").click(function () {
+        $("#Evaluat").html("");
         if (!$("#newdiv").hasClass("dis")) {
             $("#newdiv").addClass("dis");
         }

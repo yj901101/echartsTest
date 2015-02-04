@@ -79,6 +79,9 @@
                             </li>
                         
                     }
+                    <li><a href="#" class="zlblr" deptid="71">
+                        <img src="../../img/maszl.png" />马鞍山整体专利信息</a>
+                            </li>
             	</ul>
                 <input type="hidden" value="1" id="zljsid" />
             </li>
@@ -86,6 +89,42 @@
                 <img src="../../icon/icon-zdysj.png" />自定义数据</a></li>
            <li><a href="#" class="sjgl" id="zlpf">
                 <img src="../../icon/icon-zdysj.png" />专利评估</a></li>
+            <li><a href="#" class="sjgl" id="zlpf1">
+                <img src="../../icon/icon-zdysj.png" />(汽车)专利生成图</a>
+                <ul id="zlul21" class="dis">
+                    @foreach (QY_DataType zt in (List<QY_DataType>)ViewData["datatestDataType1"])
+                    {
+                        <li><a href="#" class="zlblr" deptid="@zt.id">
+                            @Qytable.sub(zt.name)</a>
+                            </li>
+                        
+                    }
+            	</ul>
+                </li>
+                <li><a href="#" class="sjgl" id="zlpf2">
+                <img src="../../icon/icon-zdysj.png" />(铁基材料)专利生成图</a>
+                <ul id="zlul22" class="dis">
+                    @foreach (QY_DataType zt in (List<QY_DataType>)ViewData["datatestDataType2"])
+                    {
+                        <li><a href="#" class="zlblr" deptid="@zt.id">
+                            @Qytable.sub(zt.name)</a>
+                            </li>
+                        
+                    }
+            	</ul>
+                </li>
+                <li><a href="#" class="sjgl" id="zlpf3">
+                <img src="../../icon/icon-zdysj.png" />(电子信息)专利生成图</a>
+                <ul id="zlul23" class="dis">
+                    @foreach (QY_DataType zt in (List<QY_DataType>)ViewData["datatestDataType3"])
+                    {
+                        <li><a href="#" class="zlblr" deptid="@zt.id">
+                            @Qytable.sub(zt.name)</a>
+                            </li>
+                        
+                    }
+            	</ul>
+                </li>
 		</ul>
 
 	</div>

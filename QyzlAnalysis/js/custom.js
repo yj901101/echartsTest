@@ -110,8 +110,10 @@
         var idtype = "";
         if ($(this).attr("cltype") == "jj") {
             idtype = $("#son").val();
-        } else {
+        } else if ($(this).attr("cltype") == "zl") {
             idtype = $("#zlfather").val() + "_" + $("#zlson").val() + "_" + $("#sonshow").val() + "_" + $("#sel_view").val();
+        } else {
+            idtype = $("#tec1").val();
         }
         $.ajax({
             type: "post",
@@ -131,7 +133,7 @@
                     if (chkunit.length > 0) {
                         if (chkunit.in_array(sunit)) {
                             if (!chkjjzl.in_array(stype)) {
-                                str = "<tr><td><label><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'"+stype+"')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                                str = "<tr><td><label><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
                                 chkjjzl.push(stype);
                             } else {
                                 alert("数据已被选择")

@@ -682,6 +682,30 @@ namespace QyzlAnalysis.Models
         private Nullable<global::System.Int32> _defaultUnit;
         partial void OndefaultUnitChanging(Nullable<global::System.Int32> value);
         partial void OndefaultUnitChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> defaultType
+        {
+            get
+            {
+                return _defaultType;
+            }
+            set
+            {
+                OndefaultTypeChanging(value);
+                ReportPropertyChanging("defaultType");
+                _defaultType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("defaultType");
+                OndefaultTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _defaultType;
+        partial void OndefaultTypeChanging(Nullable<global::System.Int32> value);
+        partial void OndefaultTypeChanged();
 
         #endregion
 

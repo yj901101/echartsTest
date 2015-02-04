@@ -29,6 +29,14 @@ namespace QyzlAnalysis.Controllers
             var sondatatype_list = db.QY_SonDataType.Where(s => s.dtid == 1).ToList().Select(s => new { id = s.id, name = s.name }).ToList();
             SelectList sondatatype_sellist = new SelectList(sondatatype_list, "id", "name");
             ViewData["sondatatype_sellist"] = sondatatype_sellist.AsEnumerable();
+            //科教数据
+            List<QY_DataType> kj_datatype_list = db.QY_DataType.Where(u=>u.id==27).ToList();
+            SelectList kj_datatype_sellist = new SelectList(kj_datatype_list, "id", "name");
+            ViewData["kj_datatype_sellist"] = kj_datatype_sellist.AsEnumerable();
+            var kj_sondatatype_list = db.QY_SonDataType.Where(s => s.dtid == 27).ToList().Select(s => new { id = s.id, name = s.name }).ToList();
+            SelectList kj_sondatatype_sellist = new SelectList(kj_sondatatype_list, "id", "name");
+            ViewData["kj_sondatatype_sellist"] = kj_sondatatype_sellist.AsEnumerable();
+            //科教数据end
             List<Models.QY_Unit> unit_list = db.QY_Unit.ToList();
             SelectList unit_sellist = new SelectList(unit_list, "id", "name");
             ViewData["unit_sellist"] = unit_sellist.AsEnumerable();

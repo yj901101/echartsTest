@@ -103,7 +103,13 @@ namespace QyzlAnalysis.Controllers
                     {
                         if (yn.Num != null && yn.Num.ToString() != "" && yn.unit!=6)
                         {
-                            str += newnumber(yn.Num) + "_";
+                            if (dataTypeid > 28 && yn.Num < 1)//专利生成图的各类型占比
+                            {
+                                str += newnumber(yn.Num * 100) + "_";
+                            }
+                            else {
+                                str += newnumber(yn.Num) + "_";
+                            }
                         }
                         else
                         {
@@ -216,8 +222,8 @@ namespace QyzlAnalysis.Controllers
                                      where n2.dtid == dtid && yea == n1.presentYear
                                      select n1).ToList();
             foreach (QY_YearNum q in number) {
-                int num = (int)q.Num;
-                if (num != 0) {
+                if (q.Num != 0)
+                {
                     if (y >= 2004)
                     {
                         return true;

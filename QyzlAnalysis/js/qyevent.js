@@ -13,6 +13,27 @@
             $("#zlul").addClass("dis")
         }
     })
+    $("#zlpf1").click(function () {
+        if ($("#zlul21").hasClass("dis")) {
+            $("#zlul21").removeClass("dis")
+        } else {
+            $("#zlul21").addClass("dis")
+        }
+    })
+    $("#zlpf2").click(function () {//专利生成图
+        if ($("#zlul22").hasClass("dis")) {
+            $("#zlul22").removeClass("dis")
+        } else {
+            $("#zlul22").addClass("dis")
+        } 
+    })
+    $("#zlpf3").click(function () {//专利生成图
+        if ($("#zlul23").hasClass("dis")) {
+            $("#zlul23").removeClass("dis")
+        } else {
+            $("#zlul23").addClass("dis")
+        } 
+    })
     $(".zlsjblr").click(function () { //专利数据点击
         $("#Evaluat").html("");
         if (!$("#newdiv").hasClass("dis")) {

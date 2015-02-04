@@ -16,6 +16,19 @@ namespace QyzlAnalysis.Controllers
         {
             var mess = ta.QY_DataType.Where(u=>u.id<=23).ToList();
             ViewData["DataType"] = mess;
+            //专利生成图
+            var datatestmess1 =(from n1 in ta.QY_DataType
+                              where n1.id >28 && n1.defaultType ==1
+                                   select n1).ToList();
+            ViewData["datatestDataType1"] = datatestmess1;
+            var datatestmess2 = (from n1 in ta.QY_DataType
+                                 where n1.id > 28 && n1.defaultType == 2
+                                 select n1).ToList();
+            ViewData["datatestDataType2"] = datatestmess2;
+            var datatestmess3 = (from n1 in ta.QY_DataType
+                                 where n1.id > 28 && n1.defaultType == 3
+                                 select n1).ToList();
+            ViewData["datatestDataType3"] = datatestmess3;
             var zlmess = ta.ZL_DataType.ToList();
             ViewData["ZLDataType"] = zlmess;
             Models.User usermodel = Session["uinfo"] as Models.User;
