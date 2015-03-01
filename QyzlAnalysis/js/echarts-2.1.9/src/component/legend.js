@@ -536,7 +536,7 @@ define(function (require) {
                 hoverable: this.legendOption.selectedMode,
                 clickable: this.legendOption.selectedMode
             };
-            
+
             var imageLocation;
             if (itemType.match('image')) {
                 var imageLocation = itemType.replace(

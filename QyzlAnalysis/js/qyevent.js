@@ -79,6 +79,25 @@
         })
         $("#divContainer").animate({ scrollTop: document.body.clientHeight + 'px' }, 800);
     })
+    $("#zdysjlrdiy").click(function () {//自定义专利图生成
+        $("#Evaluat").html("");
+        if ($("#newdiv").hasClass("dis")) {
+            $("#newdiv").removeClass("dis");
+        }
+        if (!$("#olddiv").hasClass("dis")) {
+            $("#olddiv").addClass("dis");
+        }
+        $.ajax({
+            type: "post",
+            url: "../CustomData/ZlPic_DIY",
+            dataType: "html",
+            async: false,
+            success: function (data) {
+                $("#newdiv").html(data);
+            }
+        })
+        $("#divContainer").animate({ scrollTop: document.body.clientHeight + 'px' }, 800);
+    })
     $("#zlpf").click(function () {//专利评测
         if (!$("#olddiv").hasClass("dis")) {
             $("#olddiv").addClass("dis");

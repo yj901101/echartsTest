@@ -22,7 +22,6 @@ namespace QyzlAnalysis.Common.Filters
                     {
                         if (HttpContext.Current.Request.Cookies["ucookie"] == null)
                         {
-                            HttpContext.Current.Response.Write("<script>alert(\"还未登陆，无权限访问~\");</script>");
                             string url = "Login/Index";
                             HttpContext.Current.Response.Write("<script>window.parent.location.href=(\"../../" + url + "\")</script>");
                         }
@@ -31,9 +30,8 @@ namespace QyzlAnalysis.Common.Filters
                             int id = Convert.ToInt32(HttpContext.Current.Request.Cookies["ucookie"].Value);
                             Models.User user = db.User.Where(u => u.ID == id).ToList().FirstOrDefault();
                             HttpContext.Current.Session["uinfo"] = user;
-                            if (user.URole != "root")
+                            if (user.URole != "root" && controllername != "CustomData")
                             {
-                                HttpContext.Current.Response.Write("<script>alert(\"你木有足够的权限，只有root用户才能访问~\");</script>");
                                 string url = "QyTable/Index";
                                 HttpContext.Current.Response.Write("<script>window.parent.location.href=(\"../../" + url + "\")</script>");
                             }
@@ -42,9 +40,8 @@ namespace QyzlAnalysis.Common.Filters
                     else
                     {
                         Models.User user = HttpContext.Current.Session["uinfo"] as Models.User;
-                        if (user.URole != "root")
+                        if (user.URole != "root" && controllername != "CustomData")
                         {
-                            HttpContext.Current.Response.Write("<script>alert(\"你木有足够的权限，只有root用户才能访问~\");</script>");
                             string url = "QyTable/Index";
                             HttpContext.Current.Response.Write("<script>window.parent.location.href=(\"../../" + url + "\")</script>");
                         }

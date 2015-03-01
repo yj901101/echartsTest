@@ -23,7 +23,7 @@ namespace QyzlAnalysis.Controllers
                 lyear.Add(i.ToString());
             }
             ViewData["year_list"] = lyear;
-            List<QY_DataType> datatype_list = db.QY_DataType.ToList();
+            List<QY_DataType> datatype_list = db.QY_DataType.Where(u=>u.defaultType==0).ToList();
             SelectList datatype_sellist = new SelectList(datatype_list, "id", "name");
             ViewData["datatype_sellist"] = datatype_sellist.AsEnumerable();
             var sondatatype_list = db.QY_SonDataType.Where(s => s.dtid == 1).ToList().Select(s => new { id = s.id, name = s.name }).ToList();
@@ -65,6 +65,10 @@ namespace QyzlAnalysis.Controllers
                      }
                  }
                  ViewData["sel_view"] = strhtml.ToString();
+            return View();
+        }
+        public ActionResult zlPic_Zdy() {
+            
             return View();
         }
         public ActionResult QY_SonDataType()
@@ -241,6 +245,48 @@ namespace QyzlAnalysis.Controllers
             public string sel1 { get; set; }
             public string sel2 { get; set; }
             public string sel3 { get; set; }
+        }
+        public ActionResult ChangeQY_YearNum(int id)
+        {
+            int dtid = id;
+            var sellist = db.QY_SonDataType.Where(s => s.dtid == dtid).ToList().Select(s => new { id = s.id, name = s.name, unit = s.defaultUnit }).ToList();
+            return Json(sellist, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult ChangeQY_YearNum2(int id)
+        {
+            int sid = id;
+            int unitid = Convert.ToInt32(db.QY_SonDataType.Where(s => s.id == sid).ToList().FirstOrDefault().defaultUnit);
+            return Json(unitid, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult ZlPic_DIY() { //自定义专利生成图
+            List<string> lyear = new List<string>();
+            for (int i = 2004; i <= DateTime.Now.AddYears(-1).Year; i++)
+            {
+                lyear.Add(i.ToString());
+            }
+            ViewData["year_list"] = lyear;
+            //铁基材料生成图
+            List<QY_DataType> datatype_list = db.QY_DataType.Where(u => u.defaultType == 4).ToList();
+            SelectList datatype_sellist = new SelectList(datatype_list, "id", "name");
+            ViewData["tj_datatype_sellist"] = datatype_sellist.AsEnumerable();
+            var sondatatype_list = db.QY_SonDataType.Where(s => s.dtid == 72).ToList().Select(s => new { id = s.id, name = s.name }).ToList();
+            SelectList sondatatype_sellist = new SelectList(sondatatype_list, "id", "name");
+            ViewData["tj_sondatatype_sellist"] = sondatatype_sellist.AsEnumerable();
+            //电子信息
+            datatype_list = db.QY_DataType.Where(u => u.defaultType == 5).ToList();
+            datatype_sellist = new SelectList(datatype_list, "id", "name");
+            ViewData["dz_datatype_sellist"] = datatype_sellist.AsEnumerable();
+            sondatatype_list = db.QY_SonDataType.Where(s => s.dtid == 75).ToList().Select(s => new { id = s.id, name = s.name }).ToList();
+            sondatatype_sellist = new SelectList(sondatatype_list, "id", "name");
+            ViewData["dz_sondatatype_sellist"] = sondatatype_sellist.AsEnumerable();
+            //汽车
+            datatype_list = db.QY_DataType.Where(u => u.defaultType == 6).ToList();
+            datatype_sellist = new SelectList(datatype_list, "id", "name");
+            ViewData["qc_datatype_sellist"] = datatype_sellist.AsEnumerable();
+            sondatatype_list = db.QY_SonDataType.Where(s => s.dtid == 78).ToList().Select(s => new { id = s.id, name = s.name }).ToList();
+            sondatatype_sellist = new SelectList(sondatatype_list, "id", "name");
+            ViewData["qc_sondatatype_sellist"] = sondatatype_sellist.AsEnumerable();
+            return View();
         }
     }
 }

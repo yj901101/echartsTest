@@ -103,7 +103,7 @@ namespace QyzlAnalysis.Controllers
                     {
                         if (yn.Num != null && yn.Num.ToString() != "" && yn.unit!=6)
                         {
-                            if (dataTypeid > 28 && yn.Num < 1)//专利生成图的各类型占比
+                            if (dataTypeid > 28 && yn.unit == 15)//专利生成图的各类型占比
                             {
                                 str += newnumber(yn.Num * 100) + "_";
                             }

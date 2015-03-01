@@ -209,6 +209,8 @@
     <Content Include="images\qzonebg.gif" />
     <Content Include="img\btn-add-data.png" />
     <Content Include="img\btn-count.png" />
+    <Content Include="img\btn-create-axis-gray.png" />
+    <Content Include="img\btn-create-axis.png" />
     <Content Include="img\btn-create-chart.png" />
     <Content Include="img\btn-delete-data.png" />
     <Content Include="img\btn-export-excel.png" />
@@ -299,6 +301,7 @@
     <Content Include="img\maszl.png" />
     <Content Include="js\changeencord.js" />
     <Content Include="js\custom.js" />
+    <Content Include="js\doubleaxis.js" />
     <Content Include="js\echarts-2.0.4\src\chart.js" />
     <Content Include="js\echarts-2.0.4\src\chart\bar.js" />
     <Content Include="js\echarts-2.0.4\src\chart\base.js" />
@@ -1033,6 +1036,7 @@
     <None Include="js\echarts-2.1.9\src\util\mapData\rawData\geoJson\zhe_jiang_geo.json" />
     <Content Include="Views\CustomData\Index.cshtml" />
     <Content Include="Views\Evaluating\Index.cshtml" />
+    <Content Include="Views\CustomData\ZlPic_DIY.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

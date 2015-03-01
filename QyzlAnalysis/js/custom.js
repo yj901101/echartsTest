@@ -31,14 +31,24 @@
         createxAxis.type = "category";
         createxAxis.data = customyear;
         xaxisParam.push(createxAxis)
-        var createyAxis = new Object();
-        createyAxis.type = "value";
-        createyAxis.name = chkunit[0];
-        yaxisParam.push(createyAxis);
-        createyAxis = new Object();
-        createyAxis.type = "value";
-        createyAxis.name = "（个）";
-        yaxisParam.push(createyAxis);
+        if (diyVal != "diy") {
+            var createyAxis = new Object();
+            createyAxis.type = "value";
+            createyAxis.name = chkunit[0];
+            yaxisParam.push(createyAxis);
+            createyAxis = new Object();
+            createyAxis.type = "value";
+            createyAxis.name = "（个）";
+            yaxisParam.push(createyAxis);
+        } else {
+            var createyAxis = new Object();
+            for (var j = 0; j < chkdiy.length; j++) {
+                createyAxis = new Object();
+                createyAxis.type = "value";
+                createyAxis.name = chkdiy[j];
+                yaxisParam.push(createyAxis);
+            }
+        }
         for (var i = 0; i < cloumnchk.length; i++) {
             var seriesobj = new Object();
             var objlist = new Array();
@@ -47,11 +57,19 @@
                     objlist.push(cloumnchk[i].split("_")[j]);
                 }
             }
-            if (cloumnchkval[i].indexOf("jl") >= 0) {
+            if (cloumnchkval[i].indexOf("jl") >= 0 && diyVal != "diy") {
                 seriesobj.type = $("#" + cloumnchkval[i].changeval()).val();
                 seriesobj.yAxisIndex = 0;
+            } else if (diyVal == "diy") {
+                if (chkunit[i] == chkdiy[0]) {//自定义专利图让第一个单位相同
+                    seriesobj.type = $("#" + cloumnchkval[i].changeval().changevalPer().changevalAdd().changevalAdd()).val();
+                    seriesobj.yAxisIndex = 0;
+                } else {
+                    seriesobj.type = $("#" + cloumnchkval[i].changeval().changevalPer().changevalAdd().changevalAdd()).val();
+                    seriesobj.yAxisIndex = 1;
+                }
             } else {
-                seriesobj.type = seriesobj.type = $("#" + cloumnchkval[i].changeval()).val();
+                seriesobj.type = $("#" + cloumnchkval[i].changeval()).val();
                 seriesobj.yAxisIndex = 1;
             }
             seriesobj.data = objlist;
@@ -105,15 +123,28 @@
     var customyear = new Array();
     var chkjjzl = [];
     var chkunit = [];
+    var diyVal = ""; //判断当前的选择是不是diy
+    var chkdiy = []; //判断单位的顺序
     $(".btn").click(function () {
+        var clunit = "";
         customyear = new Array();
         var idtype = "";
         if ($(this).attr("cltype") == "jj") {
             idtype = $("#son").val();
         } else if ($(this).attr("cltype") == "zl") {
             idtype = $("#zlfather").val() + "_" + $("#zlson").val() + "_" + $("#sonshow").val() + "_" + $("#sel_view").val();
-        } else {
+        } else if ($(this).attr("cltype") == "kj") {
             idtype = $("#tec1").val();
+        } else if ($(this).attr("cltype") == "diy") {//自定义图
+            if ($(this).attr("clunit") == "lose") {
+                idtype = $("#son").val();
+            } else if ($(this).attr("clunit") == "lose1") {
+                idtype = $("#son1").val();
+            } else if ($(this).attr("clunit") == "lose2") {
+                idtype = $("#son2").val();
+            }
+            diyVal = "diy";
+            clunit = $(this).attr("clunit")
         }
         $.ajax({
             type: "post",
@@ -128,53 +159,74 @@
                     strconn += "<td><input type='text' name='dtnum' cloumnid='" + stype + "' value=" + this.num + " /></td>";
                 })
                 var str = "";
-                var strselect = "<select id='" + stype.changeval() + "' style='width:100%'><option value='bar'>柱状图</option><option value='line'>线图</option></select>";
-                if (sunit != "0") {
-                    if (chkunit.length > 0) {
-                        if (chkunit.in_array(sunit)) {
+                var strselect = "<select id='" + stype.changeval().changevalPer().changevalAdd().changevalAdd() + "' style='width:100%'><option value='bar'>柱状图</option><option value='line'>线图</option></select>";
+                if (clunit.indexOf("lose") != -1) {//判断是否为专利生成图
+                    if (!chkdiy.in_array(sunit)) {//获取单位的顺序
+                        chkdiy.push(sunit)
+                    }
+                    chkunit.push(sunit)
+                    if (!chkjjzl.in_array(stype)) {
+                        str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                        chkjjzl.push(stype);
+                    } else {
+                        alert("数据已被选择")
+                    }
+                } else {
+                    if (sunit != "0") {
+                        if (chkunit.length > 0) {
+                            if (chkunit.in_array(sunit)) {
+                                if (!chkjjzl.in_array(stype)) {
+                                    str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                                    chkjjzl.push(stype);
+                                } else {
+                                    alert("数据已被选择")
+                                }
+                            } else {
+                                alert("单位过多")
+                            }
+                        } else {
+                            chkunit.push(sunit)
                             if (!chkjjzl.in_array(stype)) {
-                                str = "<tr><td><label><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                                str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
                                 chkjjzl.push(stype);
                             } else {
                                 alert("数据已被选择")
                             }
-                        } else {
-                            alert("单位过多")
                         }
                     } else {
-                        chkunit.push(sunit)
                         if (!chkjjzl.in_array(stype)) {
-                            str = "<tr><td><label><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                            str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
                             chkjjzl.push(stype);
                         } else {
                             alert("数据已被选择")
                         }
                     }
-                } else {
-                    if (!chkjjzl.in_array(stype)) {
-                        str = "<tr><td><label><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
-                        chkjjzl.push(stype);
-                    } else {
-                        alert("数据已被选择")
-                    }
-                }
-
+                } //判断是否为专利生成图
                 $("#thtr").append(str);
             }
         })
     })
     function removeRow(r,aval) {
-        var tr = r.parentNode.parentNode;
-        var tbody = tr.parentNode;
-        tbody.deleteRow(tr);
+//        var tbody = document.getElementById('thtr')
+//        tbody.deleteRow(r.parentNode.parentNode.rowIndex);
+        // alert(r.parentNode.parentNode.rowIndex)
+        var index = r.parentNode.parentNode.rowIndex
+        $(r).parent().parent().remove();
         chkjjzl.remove(aval);
+        chkunit.splice(index-1,1)
         if (chkjjzl.length == 0) {
             chkunit = [];
-        } else {
-            if (!chkjjzl.in_array("jl")) {
-                chkunit = [];
-            }
         }
+        if ($("input[name='cloumn']:checked").length == 2) {
+            $("#doubleaxis").html('<a href="javascript:createdoubleaxis()"><img src="../../img/btn-create-axis.png"/></a>')
+        } else {
+            $("#doubleaxis").html('<img src="../../img/btn-create-axis-gray.png" />')
+        }
+//        else {
+//            if (!chkjjzl.in_array("jl")) {
+//                chkunit = [];
+//            }
+//        }
     }
     String.prototype.changeval = function () {
         if (this.indexOf("/") != -1) {
@@ -182,7 +234,19 @@
         }
         return this;
     }
-    Array.prototype.in_array = function (e) {
+    String.prototype.changevalPer = function () {//去除%
+        if (this.indexOf("(%)") != -1) {
+            return this.replace("(%)", "")
+        }
+        return this;
+    }
+    String.prototype.changevalAdd = function () {//去除+
+        if (this.indexOf("+") != -1) {
+            return this.replace("+", "")
+        }
+        return this;
+    }
+    Array.prototype.in_array = function (e) {//判断元素是否存在于数组中
         for (i = 0; i < this.length; i++) {
             if (this[i] == e)
                 return true;
@@ -201,3 +265,26 @@
             this.splice(index, 1);
         }
     };
+//    Array.prototype.deleteEle = function () {//去除数组中相同的元素
+//        var arr = this, o = {}, newArr = [], i, n;
+//        for (i = 0; i < arr.length; i++) {
+//            n = arr[i] + typeof (arr[i]); //如果不需要类型判断，直接将后面的去掉即可
+//            if (typeof (o[n]) === "undefined") {
+//                newArr[newArr.length] = arr[i]
+//                o[n] = 1; //缓存
+//            }
+//        }
+//        return newArr;
+//    }
+    Array.prototype.deleteEle = function () {
+        var o = {}, newArr = [], i, j;
+        for (i = 0; i < this.length; i++) {
+            if (typeof (o[this[i]]) == "undefined") {
+                o[this[i]] = "";
+            }
+        }
+        for (j in o) {
+            newArr.push(j)
+        }
+        return newArr;
+    }

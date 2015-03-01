@@ -30,7 +30,11 @@ namespace QyzlAnalysis.Controllers
             {
                 return JjRjson(int.Parse(id));
             }
-            else {
+            else if (valtype == "diy") {
+                return DiyRjson(int.Parse(id));
+            }
+            else
+            {
                 return "";
             }
         }
@@ -66,6 +70,46 @@ namespace QyzlAnalysis.Controllers
             strconn += "]";
             return strconn;
         }
+        private string DiyRjson(int id) {
+            string strconn = "[";
+
+            QY_SonDataType st = db.QY_SonDataType.First(u => u.id == id);
+            
+            Dictionary<string, string> dic = YearDic();
+            foreach (KeyValuePair<string, string> kvp in dic)
+            {
+                string syear = kvp.Key;
+                QY_SonDataType sdt = db.QY_SonDataType.Where(u => u.id == id).FirstOrDefault();//取父级名称
+                List<QY_YearNum> yearNum = (from n1 in db.QY_YearNum
+                                            where n1.sdtid == id && n1.presentYear == syear
+                                            select n1).ToList();
+                if (yearNum.Count > 0)
+                {
+                    foreach (QY_YearNum y in yearNum)
+                    {
+                        if (y.unit == 15)//专利生成图
+                        {
+                            strconn += "{\"name\":\"" + st.name + "" + sub(st.QY_DataType.name, 4) + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num * 100) + "\",\"typ\":\"jl" + st.name + "" + sub(st.QY_DataType.name, 4) + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                        }
+                        else
+                        {
+                            strconn += "{\"name\":\"" + st.name + "" + sub(st.QY_DataType.name, 4) + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num) + "\",\"typ\":\"jl" + st.name + "" + sub(st.QY_DataType.name, 4) + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                        }
+                    }
+                }
+                else
+                {
+                    strconn += "{\"name\":\"" + st.name + "" + sub(st.QY_DataType.name, 4) + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"0\",\"typ\":\"jl" + st.name + "" + sub(st.QY_DataType.name, 4) + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                }
+
+            }
+            if (strconn.EndsWith(","))
+            {
+                strconn = strconn.Substring(0, strconn.Length - 1);
+            }
+            strconn += "]";
+            return strconn;
+        }
         private string JjRjson(int id)
         {
             string strconn = "[";
@@ -81,7 +125,13 @@ namespace QyzlAnalysis.Controllers
                 {
                     foreach (QY_YearNum y in yearNum)
                     {
-                        strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num) + "\",\"typ\":\"jl" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                        if (y.unit == 15)//专利生成图
+                        {
+                            strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num*100) + "\",\"typ\":\"jl" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                        }
+                        else {
+                            strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num) + "\",\"typ\":\"jl" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                        }
                     }
                 }
                 else {

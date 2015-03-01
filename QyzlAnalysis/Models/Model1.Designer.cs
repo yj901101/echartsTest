@@ -577,6 +577,54 @@ namespace QyzlAnalysis.Models
         private global::System.String _name;
         partial void OnnameChanging(global::System.String value);
         partial void OnnameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sonType
+        {
+            get
+            {
+                return _sonType;
+            }
+            set
+            {
+                OnsonTypeChanging(value);
+                ReportPropertyChanging("sonType");
+                _sonType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sonType");
+                OnsonTypeChanged();
+            }
+        }
+        private global::System.String _sonType;
+        partial void OnsonTypeChanging(global::System.String value);
+        partial void OnsonTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String faType
+        {
+            get
+            {
+                return _faType;
+            }
+            set
+            {
+                OnfaTypeChanging(value);
+                ReportPropertyChanging("faType");
+                _faType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("faType");
+                OnfaTypeChanged();
+            }
+        }
+        private global::System.String _faType;
+        partial void OnfaTypeChanging(global::System.String value);
+        partial void OnfaTypeChanged();
 
         #endregion
 

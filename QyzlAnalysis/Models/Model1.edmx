@@ -78,6 +78,8 @@
           <Property Name="years" Type="int" />
           <Property Name="Ydata" Type="numeric" Precision="12" Scale="2" />
           <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="sonType" Type="varchar" MaxLength="50" />
+          <Property Name="faType" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="QY_DataType">
           <Key>
@@ -732,6 +734,8 @@
           <Property Type="Int32" Name="years" />
           <Property Type="Decimal" Name="Ydata" Precision="12" Scale="2" />
           <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="sonType" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="faType" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -888,6 +892,8 @@
           <EntitySetMapping Name="DataTest">
             <EntityTypeMapping TypeName="QyzlModel.DataTest">
               <MappingFragment StoreEntitySet="DataTest">
+                <ScalarProperty Name="faType" ColumnName="faType" />
+                <ScalarProperty Name="sonType" ColumnName="sonType" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Ydata" ColumnName="Ydata" />
                 <ScalarProperty Name="years" ColumnName="years" />
