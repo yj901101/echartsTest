@@ -85,14 +85,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Atrributes\SkipAttribute.cs" />
+    <Compile Include="Common\Calculate.cs" />
+    <Compile Include="Common\ComputerResult.cs" />
     <Compile Include="Common\DataHelper.cs" />
     <Compile Include="Common\ExcelHelper.cs" />
     <Compile Include="Common\Filters\LoginValidate.cs" />
     <Compile Include="Common\InsertZlHelper.cs" />
+    <Compile Include="Common\JsonClass.cs" />
+    <Compile Include="Common\matchNum.cs" />
     <Compile Include="Common\PageHelper.cs" />
     <Compile Include="Common\Qytable.cs" />
+    <Compile Include="Content\MatchData.cs" />
     <Compile Include="Content\StyleName.cs" />
     <Compile Include="Content\Xaxle.cs" />
+    <Compile Include="Content\YJPagedList.cs" />
     <Compile Include="Controllers\AddDataTypeController.cs" />
     <Compile Include="Controllers\AddInfoController.cs" />
     <Compile Include="Controllers\Add_QYDataController.cs" />
@@ -107,6 +113,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainShowController.cs" />
+    <Compile Include="Controllers\MatchingController.cs" />
     <Compile Include="Controllers\QyTableController.cs" />
     <Compile Include="Controllers\SecAndEduController.cs" />
     <Compile Include="Controllers\ShowController.cs" />
@@ -208,11 +215,19 @@
     <Content Include="images\loader.gif" />
     <Content Include="images\qzonebg.gif" />
     <Content Include="img\btn-add-data.png" />
+    <Content Include="img\btn-count-total-gray.png" />
+    <Content Include="img\btn-count-total.png" />
+    <Content Include="img\btn-count-value-gray.png" />
+    <Content Include="img\btn-count-value.png" />
     <Content Include="img\btn-count.png" />
     <Content Include="img\btn-create-axis-gray.png" />
     <Content Include="img\btn-create-axis.png" />
     <Content Include="img\btn-create-chart.png" />
+    <Content Include="img\btn-create-fitCoefficient-gray.png" />
+    <Content Include="img\btn-create-fitCoefficient.png" />
     <Content Include="img\btn-delete-data.png" />
+    <Content Include="img\btn-empty-gray.png" />
+    <Content Include="img\btn-empty.png" />
     <Content Include="img\btn-export-excel.png" />
     <Content Include="img\btn-import-bulk-gray.png" />
     <Content Include="img\btn-import-bulk.png" />
@@ -514,6 +529,7 @@
     <Content Include="js\echarts-2.1.9\src\util\shape\Symbol.js" />
     <Content Include="js\echarts-2.1.9\src\util\smartSteps.js" />
     <Content Include="js\mainindex.js" />
+    <Content Include="js\matching.js" />
     <Content Include="js\msgBox.js" />
     <Content Include="js\My97DatePicker\calendar.js" />
     <Content Include="js\My97DatePicker\config.js" />
@@ -541,6 +557,7 @@
     <Content Include="js\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
     <Content Include="js\My97DatePicker\开发包\skin\whyGreen\img.gif" />
     <Content Include="js\nav.js" />
+    <Content Include="js\pager.js" />
     <Content Include="js\qyevent.js" />
     <Content Include="js\qytable.js" />
     <Content Include="js\requerconfig.js" />
@@ -900,6 +917,7 @@
     <Content Include="style\subSection2.css" />
     <Content Include="style\user%281%29.css" />
     <Content Include="style\user.css" />
+    <Content Include="style\user%283%29.css" />
     <Content Include="Views\images\loader.gif" />
     <Content Include="Views\images\qzonebg.gif" />
     <Content Include="Web.config" />
@@ -930,12 +948,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\MainShow\Index.cshtml" />
@@ -1037,6 +1049,11 @@
     <Content Include="Views\CustomData\Index.cshtml" />
     <Content Include="Views\Evaluating\Index.cshtml" />
     <Content Include="Views\CustomData\ZlPic_DIY.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\Matching\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -26,5 +26,9 @@ namespace QyzlAnalysis.DbHelper
             }
             return count_1 / (count_1 + count_2);
         }
+        public static DataSet insertMatch(string sql) {
+            DataSet ds = DbHelper.Query(sql);
+            return ds;
+        }
     }
 }

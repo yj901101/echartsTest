@@ -8,7 +8,9 @@ $(document).ready(function () {
 var myChart_Category;
 $(function () {
     $(".zlblr").click(function () {
-        $("#Evaluat").html("");
+        if (!$("#Evaluat").hasClass("dis")) {
+            $("#Evaluat").addClass("dis")
+        }
         if (!$("#newdiv").hasClass("dis")) {
             $("#newdiv").addClass("dis");
         }

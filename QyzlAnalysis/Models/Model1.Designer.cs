@@ -27,10 +27,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("QyzlModel", "FK_ZL_ClassifyData", "ZL_Classify", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QyzlAnalysis.Models.ZL_Classify), "ZL_ClassifyData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QyzlAnalysis.Models.ZL_ClassifyData), true)]
 [assembly: EdmRelationshipAttribute("QyzlModel", "FK_ZL_Data", "ZL_ClassifyData", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QyzlAnalysis.Models.ZL_ClassifyData), "ZL_Data", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QyzlAnalysis.Models.ZL_Data), true)]
 [assembly: EdmRelationshipAttribute("QyzlModel", "FK__ZL_DataType", "ZL_DataType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QyzlAnalysis.Models.ZL_DataType), "ZL_DataType1", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QyzlAnalysis.Models.ZL_DataType), true)]
+[assembly: EdmRelationshipAttribute("QyzlModel", "FK_ZL_GsCompany", "ZL_DataType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QyzlAnalysis.Models.ZL_DataType), "ZL_GsCompany", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QyzlAnalysis.Models.ZL_GsCompany), true)]
 [assembly: EdmRelationshipAttribute("QyzlModel", "FK_ZL_ViewType", "ZL_DataType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QyzlAnalysis.Models.ZL_DataType), "ZL_ViewType", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QyzlAnalysis.Models.ZL_ViewType), true)]
 [assembly: EdmRelationshipAttribute("QyzlModel", "FK_ZL_ViewName", "ZL_ViewSonType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QyzlAnalysis.Models.ZL_ViewSonType), "ZL_ViewName", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QyzlAnalysis.Models.ZL_ViewName), true)]
 [assembly: EdmRelationshipAttribute("QyzlModel", "FK_ZL_ViewSonType", "ZL_ViewType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QyzlAnalysis.Models.ZL_ViewType), "ZL_ViewSonType", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QyzlAnalysis.Models.ZL_ViewSonType), true)]
-[assembly: EdmRelationshipAttribute("QyzlModel", "FK_ZL_GsCompany", "ZL_DataType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(QyzlAnalysis.Models.ZL_DataType), "ZL_GsCompany", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QyzlAnalysis.Models.ZL_GsCompany), true)]
 
 #endregion
 
@@ -85,6 +85,38 @@ namespace QyzlAnalysis.Models
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
+        public ObjectSet<DataTest> DataTest
+        {
+            get
+            {
+                if ((_DataTest == null))
+                {
+                    _DataTest = base.CreateObjectSet<DataTest>("DataTest");
+                }
+                return _DataTest;
+            }
+        }
+        private ObjectSet<DataTest> _DataTest;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<DataTest2> DataTest2
+        {
+            get
+            {
+                if ((_DataTest2 == null))
+                {
+                    _DataTest2 = base.CreateObjectSet<DataTest2>("DataTest2");
+                }
+                return _DataTest2;
+            }
+        }
+        private ObjectSet<DataTest2> _DataTest2;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
         public ObjectSet<QY_DataType> QY_DataType
         {
             get
@@ -97,6 +129,22 @@ namespace QyzlAnalysis.Models
             }
         }
         private ObjectSet<QY_DataType> _QY_DataType;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<QY_Relation> QY_Relation
+        {
+            get
+            {
+                if ((_QY_Relation == null))
+                {
+                    _QY_Relation = base.CreateObjectSet<QY_Relation>("QY_Relation");
+                }
+                return _QY_Relation;
+            }
+        }
+        private ObjectSet<QY_Relation> _QY_Relation;
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -145,22 +193,6 @@ namespace QyzlAnalysis.Models
             }
         }
         private ObjectSet<QY_YearNum> _QY_YearNum;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<QY_Relation> QY_Relation
-        {
-            get
-            {
-                if ((_QY_Relation == null))
-                {
-                    _QY_Relation = base.CreateObjectSet<QY_Relation>("QY_Relation");
-                }
-                return _QY_Relation;
-            }
-        }
-        private ObjectSet<QY_Relation> _QY_Relation;
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -225,6 +257,22 @@ namespace QyzlAnalysis.Models
             }
         }
         private ObjectSet<ZL_Data> _ZL_Data;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<ZL_Data_Pa> ZL_Data_Pa
+        {
+            get
+            {
+                if ((_ZL_Data_Pa == null))
+                {
+                    _ZL_Data_Pa = base.CreateObjectSet<ZL_Data_Pa>("ZL_Data_Pa");
+                }
+                return _ZL_Data_Pa;
+            }
+        }
+        private ObjectSet<ZL_Data_Pa> _ZL_Data_Pa;
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -309,22 +357,38 @@ namespace QyzlAnalysis.Models
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<DataTest> DataTest
+        public ObjectSet<ZL_Match> ZL_Match
         {
             get
             {
-                if ((_DataTest == null))
+                if ((_ZL_Match == null))
                 {
-                    _DataTest = base.CreateObjectSet<DataTest>("DataTest");
+                    _ZL_Match = base.CreateObjectSet<ZL_Match>("ZL_Match");
                 }
-                return _DataTest;
+                return _ZL_Match;
             }
         }
-        private ObjectSet<DataTest> _DataTest;
+        private ObjectSet<ZL_Match> _ZL_Match;
 
         #endregion
 
         #region AddTo 方法
+    
+        /// <summary>
+        /// 用于向 DataTest EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToDataTest(DataTest dataTest)
+        {
+            base.AddObject("DataTest", dataTest);
+        }
+    
+        /// <summary>
+        /// 用于向 DataTest2 EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToDataTest2(DataTest2 dataTest2)
+        {
+            base.AddObject("DataTest2", dataTest2);
+        }
     
         /// <summary>
         /// 用于向 QY_DataType EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
@@ -332,6 +396,14 @@ namespace QyzlAnalysis.Models
         public void AddToQY_DataType(QY_DataType qY_DataType)
         {
             base.AddObject("QY_DataType", qY_DataType);
+        }
+    
+        /// <summary>
+        /// 用于向 QY_Relation EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToQY_Relation(QY_Relation qY_Relation)
+        {
+            base.AddObject("QY_Relation", qY_Relation);
         }
     
         /// <summary>
@@ -356,14 +428,6 @@ namespace QyzlAnalysis.Models
         public void AddToQY_YearNum(QY_YearNum qY_YearNum)
         {
             base.AddObject("QY_YearNum", qY_YearNum);
-        }
-    
-        /// <summary>
-        /// 用于向 QY_Relation EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToQY_Relation(QY_Relation qY_Relation)
-        {
-            base.AddObject("QY_Relation", qY_Relation);
         }
     
         /// <summary>
@@ -396,6 +460,14 @@ namespace QyzlAnalysis.Models
         public void AddToZL_Data(ZL_Data zL_Data)
         {
             base.AddObject("ZL_Data", zL_Data);
+        }
+    
+        /// <summary>
+        /// 用于向 ZL_Data_Pa EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToZL_Data_Pa(ZL_Data_Pa zL_Data_Pa)
+        {
+            base.AddObject("ZL_Data_Pa", zL_Data_Pa);
         }
     
         /// <summary>
@@ -439,11 +511,11 @@ namespace QyzlAnalysis.Models
         }
     
         /// <summary>
-        /// 用于向 DataTest EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// 用于向 ZL_Match EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
-        public void AddToDataTest(DataTest dataTest)
+        public void AddToZL_Match(ZL_Match zL_Match)
         {
-            base.AddObject("DataTest", dataTest);
+            base.AddObject("ZL_Match", zL_Match);
         }
 
         #endregion
@@ -625,6 +697,135 @@ namespace QyzlAnalysis.Models
         private global::System.String _faType;
         partial void OnfaTypeChanging(global::System.String value);
         partial void OnfaTypeChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="QyzlModel", Name="DataTest2")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class DataTest2 : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 DataTest2 对象。
+        /// </summary>
+        /// <param name="id">id 属性的初始值。</param>
+        public static DataTest2 CreateDataTest2(global::System.Int32 id)
+        {
+            DataTest2 dataTest2 = new DataTest2();
+            dataTest2.id = id;
+            return dataTest2;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> years
+        {
+            get
+            {
+                return _years;
+            }
+            set
+            {
+                OnyearsChanging(value);
+                ReportPropertyChanging("years");
+                _years = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("years");
+                OnyearsChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _years;
+        partial void OnyearsChanging(Nullable<global::System.Int32> value);
+        partial void OnyearsChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Ydata
+        {
+            get
+            {
+                return _Ydata;
+            }
+            set
+            {
+                OnYdataChanging(value);
+                ReportPropertyChanging("Ydata");
+                _Ydata = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ydata");
+                OnYdataChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Ydata;
+        partial void OnYdataChanging(Nullable<global::System.Decimal> value);
+        partial void OnYdataChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
 
         #endregion
 
@@ -1356,6 +1557,30 @@ namespace QyzlAnalysis.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public Nullable<global::System.Int32> sdtid
+        {
+            get
+            {
+                return _sdtid;
+            }
+            set
+            {
+                OnsdtidChanging(value);
+                ReportPropertyChanging("sdtid");
+                _sdtid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("sdtid");
+                OnsdtidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _sdtid;
+        partial void OnsdtidChanging(Nullable<global::System.Int32> value);
+        partial void OnsdtidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Num
         {
             get
@@ -1398,30 +1623,6 @@ namespace QyzlAnalysis.Models
         private Nullable<global::System.Int32> _unit;
         partial void OnunitChanging(Nullable<global::System.Int32> value);
         partial void OnunitChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> sdtid
-        {
-            get
-            {
-                return _sdtid;
-            }
-            set
-            {
-                OnsdtidChanging(value);
-                ReportPropertyChanging("sdtid");
-                _sdtid = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("sdtid");
-                OnsdtidChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _sdtid;
-        partial void OnsdtidChanging(Nullable<global::System.Int32> value);
-        partial void OnsdtidChanged();
 
         #endregion
 
@@ -2467,6 +2668,255 @@ namespace QyzlAnalysis.Models
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="QyzlModel", Name="ZL_Data_Pa")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ZL_Data_Pa : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 ZL_Data_Pa 对象。
+        /// </summary>
+        /// <param name="id">id 属性的初始值。</param>
+        public static ZL_Data_Pa CreateZL_Data_Pa(global::System.Int32 id)
+        {
+            ZL_Data_Pa zL_Data_Pa = new ZL_Data_Pa();
+            zL_Data_Pa.id = id;
+            return zL_Data_Pa;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pa
+        {
+            get
+            {
+                return _pa;
+            }
+            set
+            {
+                OnpaChanging(value);
+                ReportPropertyChanging("pa");
+                _pa = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pa");
+                OnpaChanged();
+            }
+        }
+        private global::System.String _pa;
+        partial void OnpaChanging(global::System.String value);
+        partial void OnpaChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> zdid
+        {
+            get
+            {
+                return _zdid;
+            }
+            set
+            {
+                OnzdidChanging(value);
+                ReportPropertyChanging("zdid");
+                _zdid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("zdid");
+                OnzdidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _zdid;
+        partial void OnzdidChanging(Nullable<global::System.Int32> value);
+        partial void OnzdidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ad
+        {
+            get
+            {
+                return _ad;
+            }
+            set
+            {
+                OnadChanging(value);
+                ReportPropertyChanging("ad");
+                _ad = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ad");
+                OnadChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ad;
+        partial void OnadChanging(Nullable<global::System.DateTime> value);
+        partial void OnadChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> isGs
+        {
+            get
+            {
+                return _isGs;
+            }
+            set
+            {
+                OnisGsChanging(value);
+                ReportPropertyChanging("isGs");
+                _isGs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isGs");
+                OnisGsChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _isGs;
+        partial void OnisGsChanging(Nullable<global::System.Boolean> value);
+        partial void OnisGsChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String flzt
+        {
+            get
+            {
+                return _flzt;
+            }
+            set
+            {
+                OnflztChanging(value);
+                ReportPropertyChanging("flzt");
+                _flzt = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("flzt");
+                OnflztChanged();
+            }
+        }
+        private global::System.String _flzt;
+        partial void OnflztChanging(global::System.String value);
+        partial void OnflztChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String zllx
+        {
+            get
+            {
+                return _zllx;
+            }
+            set
+            {
+                OnzllxChanging(value);
+                ReportPropertyChanging("zllx");
+                _zllx = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("zllx");
+                OnzllxChanged();
+            }
+        }
+        private global::System.String _zllx;
+        partial void OnzllxChanging(global::System.String value);
+        partial void OnzllxChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> cdid
+        {
+            get
+            {
+                return _cdid;
+            }
+            set
+            {
+                OncdidChanging(value);
+                ReportPropertyChanging("cdid");
+                _cdid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cdid");
+                OncdidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _cdid;
+        partial void OncdidChanging(Nullable<global::System.Int32> value);
+        partial void OncdidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> isSq
+        {
+            get
+            {
+                return _isSq;
+            }
+            set
+            {
+                OnisSqChanging(value);
+                ReportPropertyChanging("isSq");
+                _isSq = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isSq");
+                OnisSqChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _isSq;
+        partial void OnisSqChanging(Nullable<global::System.Boolean> value);
+        partial void OnisSqChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="QyzlModel", Name="ZL_DataType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2649,28 +3099,6 @@ namespace QyzlAnalysis.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QyzlModel", "FK_ZL_ViewType", "ZL_ViewType")]
-        public EntityCollection<ZL_ViewType> ZL_ViewType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ZL_ViewType>("QyzlModel.FK_ZL_ViewType", "ZL_ViewType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZL_ViewType>("QyzlModel.FK_ZL_ViewType", "ZL_ViewType", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QyzlModel", "FK_ZL_GsCompany", "ZL_GsCompany")]
         public EntityCollection<ZL_GsCompany> ZL_GsCompany
         {
@@ -2683,6 +3111,28 @@ namespace QyzlAnalysis.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZL_GsCompany>("QyzlModel.FK_ZL_GsCompany", "ZL_GsCompany", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("QyzlModel", "FK_ZL_ViewType", "ZL_ViewType")]
+        public EntityCollection<ZL_ViewType> ZL_ViewType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ZL_ViewType>("QyzlModel.FK_ZL_ViewType", "ZL_ViewType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ZL_ViewType>("QyzlModel.FK_ZL_ViewType", "ZL_ViewType", value);
                 }
             }
         }
@@ -2840,6 +3290,183 @@ namespace QyzlAnalysis.Models
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="QyzlModel", Name="ZL_Match")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ZL_Match : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 ZL_Match 对象。
+        /// </summary>
+        /// <param name="id">id 属性的初始值。</param>
+        public static ZL_Match CreateZL_Match(global::System.Int32 id)
+        {
+            ZL_Match zL_Match = new ZL_Match();
+            zL_Match.id = id;
+            return zL_Match;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String years
+        {
+            get
+            {
+                return _years;
+            }
+            set
+            {
+                OnyearsChanging(value);
+                ReportPropertyChanging("years");
+                _years = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("years");
+                OnyearsChanged();
+            }
+        }
+        private global::System.String _years;
+        partial void OnyearsChanging(global::System.String value);
+        partial void OnyearsChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nums
+        {
+            get
+            {
+                return _nums;
+            }
+            set
+            {
+                OnnumsChanging(value);
+                ReportPropertyChanging("nums");
+                _nums = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nums");
+                OnnumsChanged();
+            }
+        }
+        private global::System.String _nums;
+        partial void OnnumsChanging(global::System.String value);
+        partial void OnnumsChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String names
+        {
+            get
+            {
+                return _names;
+            }
+            set
+            {
+                OnnamesChanging(value);
+                ReportPropertyChanging("names");
+                _names = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("names");
+                OnnamesChanged();
+            }
+        }
+        private global::System.String _names;
+        partial void OnnamesChanging(global::System.String value);
+        partial void OnnamesChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SumName
+        {
+            get
+            {
+                return _SumName;
+            }
+            set
+            {
+                OnSumNameChanging(value);
+                ReportPropertyChanging("SumName");
+                _SumName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SumName");
+                OnSumNameChanged();
+            }
+        }
+        private global::System.String _SumName;
+        partial void OnSumNameChanging(global::System.String value);
+        partial void OnSumNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pihao
+        {
+            get
+            {
+                return _pihao;
+            }
+            set
+            {
+                OnpihaoChanging(value);
+                ReportPropertyChanging("pihao");
+                _pihao = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pihao");
+                OnpihaoChanged();
+            }
+        }
+        private global::System.String _pihao;
+        partial void OnpihaoChanging(global::System.String value);
+        partial void OnpihaoChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

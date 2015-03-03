@@ -25,14 +25,14 @@
             $("#zlul22").removeClass("dis")
         } else {
             $("#zlul22").addClass("dis")
-        } 
+        }
     })
     $("#zlpf3").click(function () {//专利生成图
         if ($("#zlul23").hasClass("dis")) {
             $("#zlul23").removeClass("dis")
         } else {
             $("#zlul23").addClass("dis")
-        } 
+        }
     })
     $(".zlsjblr").click(function () { //专利数据点击
         $("#Evaluat").html("");
@@ -61,7 +61,9 @@
         createTable();
     })
     $("#zdysjlr").click(function () {//自定义数据生成
-        $("#Evaluat").html("");
+        if (!$("#Evaluat").hasClass("dis")) {
+            $("#Evaluat").addClass("dis");
+        }
         if ($("#newdiv").hasClass("dis")) {
             $("#newdiv").removeClass("dis");
         }
@@ -80,7 +82,10 @@
         $("#divContainer").animate({ scrollTop: document.body.clientHeight + 'px' }, 800);
     })
     $("#zdysjlrdiy").click(function () {//自定义专利图生成
-        $("#Evaluat").html("");
+        
+        if (!$("#Evaluat").hasClass("dis")) {
+            $("#Evaluat").addClass("dis");
+        }
         if ($("#newdiv").hasClass("dis")) {
             $("#newdiv").removeClass("dis");
         }
@@ -102,12 +107,16 @@
         if (!$("#olddiv").hasClass("dis")) {
             $("#olddiv").addClass("dis");
         }
+        if ($("#Evaluat").hasClass("dis")) {
+            $("#Evaluat").removeClass("dis");
+        }
         $("#newdiv").html("");
-        $.ajax({
-            type: "post", url: "../Evaluating/Index", dataType: "html", success: function (result) {
-                $("#Evaluat").html(result);
-            }
-        })
+        //        $.ajax({
+        //            type: "post", url: "../Evaluating/Index", dataType: "html", success: function (result) {
+        //                $("#Evaluat").html(result);
+        //            }
+        //        })
+        $("#Evaluat").html('<iframe src="../Matching/Index" width="100%" height="100%" class="divIframe"></iframe>')
     })
 })
 var SubSectionclick = function (obj) {

@@ -29,7 +29,7 @@ namespace QyzlAnalysis.Controllers
                                  where n1.id > 28 && n1.defaultType == 3
                                  select n1).ToList();
             ViewData["datatestDataType3"] = datatestmess3;
-            var zlmess = ta.ZL_DataType.ToList();
+            var zlmess = ta.ZL_DataType.Where(u=>u.id!=5).ToList();//剔除马鞍山专利
             ViewData["ZLDataType"] = zlmess;
             Models.User usermodel = Session["uinfo"] as Models.User;
             if (usermodel != null)
