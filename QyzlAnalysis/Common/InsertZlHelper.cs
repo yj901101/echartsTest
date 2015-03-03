@@ -88,8 +88,12 @@ namespace QyzlAnalysis.Common
             Models.QyzlEntities db = new Models.QyzlEntities();
             foreach (Models.ZL_Data model in zllist) 
             {
-                db.ZL_Data.AddObject(model);
-                db.SaveChanges();
+                Models.ZL_Data zlmodel= db.ZL_Data.Where(z => z.AN == model.AN).ToList().FirstOrDefault();
+                if (zlmodel == null)
+                {
+                    db.ZL_Data.AddObject(model);
+                    db.SaveChanges();
+                }
             }
         }
     }
