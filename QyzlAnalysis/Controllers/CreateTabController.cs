@@ -20,7 +20,7 @@ namespace QyzlAnalysis.Controllers
         }
         public string Rjson(string id, string valtype) {
             if (valtype == "jj") {
-                return JjRjson(int.Parse(id));
+                return JjRjson(int.Parse(id),"jl");
             }
             else if (valtype == "zl")
             {
@@ -28,7 +28,7 @@ namespace QyzlAnalysis.Controllers
             }
             else if (valtype == "kj")
             {
-                return JjRjson(int.Parse(id));
+                return JjRjson(int.Parse(id),"kj");
             }
             else if (valtype == "diy") {
                 return DiyRjson(int.Parse(id));
@@ -110,7 +110,7 @@ namespace QyzlAnalysis.Controllers
             strconn += "]";
             return strconn;
         }
-        private string JjRjson(int id)
+        private string JjRjson(int id,string ty)//ty用来识别经济还是科教
         {
             string strconn = "[";
            
@@ -127,15 +127,15 @@ namespace QyzlAnalysis.Controllers
                     {
                         if (y.unit == 15)//专利生成图
                         {
-                            strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num*100) + "\",\"typ\":\"jl" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                            strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num * 100) + "\",\"typ\":\"" + ty + "" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
                         }
                         else {
-                            strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num) + "\",\"typ\":\"jl" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                            strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"" + newnumber(y.Num) + "\",\"typ\":\"" + ty + "" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
                         }
                     }
                 }
                 else {
-                    strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"0\",\"typ\":\"jl" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
+                    strconn += "{\"name\":\"" + st.name + "" + st.QY_Unit.name + "\",\"year\":\"" + syear + "\",\"num\":\"0\",\"typ\":\"" + ty + "" + st.name + "" + st.QY_Unit.name + "\",\"unit\":\"" + st.QY_Unit.name + "\"},";
                 }
                 
             }
