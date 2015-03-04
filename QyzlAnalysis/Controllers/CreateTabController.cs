@@ -115,6 +115,9 @@ namespace QyzlAnalysis.Controllers
             string strconn = "[";
            
             QY_SonDataType st = db.QY_SonDataType.First(u => u.id == id);
+            if (st.dtid == 5) {
+                ty = "rc";
+            }
             Dictionary<string,string> dic = YearDic();
             foreach (KeyValuePair<string, string> kvp in dic){
                 string syear = kvp.Key;

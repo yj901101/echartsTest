@@ -123,3 +123,36 @@ div.dataCompare input[type="text"]{
 	border: 1px solid #d6d6d6;
 	margin-left: 5px;
 }
+div.dataCompare table.dataForm table
+{
+    width: 100%;
+    }
+div.dataCompare table.dataForm > thead > tr > td + td,
+div.dataCompare table.dataForm > tbody > tr > td + td
+{
+    border-left-width: 2px;
+    }
+div.dataCompare table.dataForm table tr
+{
+    border: none;
+    }
+div.dataCompare table.dataForm table th
+{
+    border-width: 1px 0;
+    text-align: right;
+    }
+div.dataCompare table.dataForm table td
+{
+    border-width: 1px 0;
+    width: 15px;
+    padding: 0;
+    }
+div.dataCompare table.dataForm table td input[type="text"]
+{
+    border: none;
+    width: 100%;
+    text-indent: 0;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    }

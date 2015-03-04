@@ -57,7 +57,7 @@
                     objlist.push(cloumnchk[i].split("_")[j]);
                 }
             }
-            if ((cloumnchkval[i].indexOf("jl") >= 0 || cloumnchkval[i].indexOf("kj") >= 0) && diyVal != "diy") {
+            if ((cloumnchkval[i].indexOf("jl") >= 0 || cloumnchkval[i].indexOf("kj") >= 0 || cloumnchkval[i].indexOf("rc") >= 0) && diyVal != "diy") {
                 seriesobj.type = $("#" + cloumnchkval[i].changeval()).val();
                 seriesobj.yAxisIndex = 0;
             } else if (diyVal == "diy") {
