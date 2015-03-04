@@ -223,6 +223,7 @@
           <Property Name="names" Type="nvarchar" MaxLength="100" />
           <Property Name="SumName" Type="nvarchar" MaxLength="100" />
           <Property Name="pihao" Type="varchar" MaxLength="50" />
+          <Property Name="ty" Type="int" />
         </EntityType>
         <EntityType Name="ZL_ViewName">
           <Key>
@@ -810,6 +811,7 @@
           <Property Type="String" Name="names" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="SumName" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="pihao" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ty" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1003,6 +1005,7 @@
           <EntitySetMapping Name="ZL_Match">
             <EntityTypeMapping TypeName="QyzlModel.ZL_Match">
               <MappingFragment StoreEntitySet="ZL_Match">
+                <ScalarProperty Name="ty" ColumnName="ty" />
                 <ScalarProperty Name="pihao" ColumnName="pihao" />
                 <ScalarProperty Name="SumName" ColumnName="SumName" />
                 <ScalarProperty Name="names" ColumnName="names" />

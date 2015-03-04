@@ -39,9 +39,10 @@ namespace QyzlAnalysis.Content
                     }
                 }
                 List<double> data3 = new List<double>();
+                double den = denominate(data2);
                 foreach(double item in data2)
                 {
-                    double res = item /data2[0];
+                    double res = item / den;
                     data3.Add(res);
                 }
                 double[] y = data3.ToArray();
@@ -49,6 +50,15 @@ namespace QyzlAnalysis.Content
                 return_list.Add(son_list);
             }
             return return_list;
+        }
+        private static double denominate(List<double> ld) {
+            for (int i = 0; i < ld.Count; i++) {
+                if (ld[i] != 0)
+                {
+                    return ld[i];
+                }
+            }
+            return 0;
         }
     }
 }

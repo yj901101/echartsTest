@@ -10,45 +10,54 @@ namespace QyzlAnalysis.Common
         public static int comAaf(double k1,double k2) {
             double k = k1 - k2;
             int aaf = 0;
-            if (k < 0) {
-                k = -k;
-            }
-            if (0 <= k && k<=0.3) {
+            //if (k < 0) {
+            //    k = -k;
+            //}
+            if (1.35 < k && k<=1.5) {
                 aaf = 10;
             }
-            else if (0.3 < k && k <= 0.6) {
+            else if (1.2 < k && k <= 1.35) {
                 aaf = 9;
             }
-            else if (0.6 < k && k <= 0.9)
+            else if (1.05 < k && k <= 1.2)
             {
                 aaf = 8;
             }
-            else if (0.9 < k && k <= 1.2)
+            else if (0.9 < k && k <= 1.05)
             {
                 aaf = 7;
             }
-            else if (1.2 < k && k <= 1.5)
+            else if (0.75 < k && k <= 0.9)
             {
                 aaf = 6;
             }
-            else if (1.5 < k && k <= 1.8)
+            else if (0.6 < k && k <= 0.75)
             {
                 aaf = 5;
             }
-            else if (1.8 < k && k <= 2.1)
+            else if (0.45 < k && k <= 0.6)
             {
                 aaf = 4;
             }
-            else if (2.1 < k && k <= 2.4)
+            else if (0.3 < k && k <= 0.45)
             {
                 aaf = 3;
             }
-            else if (2.4 < k && k <= 2.7)
+            else if (0.15 < k && k <= 0.3)
             {
                 aaf = 2;
             }
-            else if (2.7 < k && k <= 3)
+            else if (0 < k && k <= 0.15)
             {
+                aaf = 1;
+            }else if(-0.5< k &&　k<=0){
+                aaf = 5;
+            }
+            else if (-1 < k && k <= -0.5)
+            {
+                aaf = 3;
+            }
+            else if(k<=-1){
                 aaf = 1;
             }
             return aaf;
@@ -57,7 +66,8 @@ namespace QyzlAnalysis.Common
         {
             double r1 = list[i];
             double r2 = list[i + 1];
-            double res = Math.Abs(r1 - r2);
+            //double res = Math.Abs(r1 - r2);
+            double res = (r1 + r2) / 2;
             double b = 0;
             if (res >= 0 && res <= 0.1)
             {

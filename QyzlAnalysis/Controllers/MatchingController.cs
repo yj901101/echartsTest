@@ -35,7 +35,7 @@ namespace QyzlAnalysis.Controllers
             }
             ViewData["year_list"] = lyear;
             var mat = from n1 in dbmatch.ZL_Match
-                      orderby n1.id
+                      orderby n1.id descending
                       select n1;
             YJPagedList<ZL_Match> pagerList;
             try
@@ -64,7 +64,7 @@ namespace QyzlAnalysis.Controllers
                         lsnus.Add(s);
                     }
                 }
-                dic.Add(zm.id+"_"+zm.names, lsnus);
+                dic.Add(zm.id+"_"+zm.names+"_"+zm.ty, lsnus);
             }
             return dic;
         }
@@ -87,6 +87,7 @@ namespace QyzlAnalysis.Controllers
                     m.nums = numList[i];
                     m.names = nameList[i].Substring(2, nameList[i].Length-2);
                     m.years = years;
+                    m.ty = getTy(nameList[i].Substring(0, 2));
                     m.pihao = timequene;
                     dbmatch.ZL_Match.AddObject(m);
                     dbmatch.SaveChanges();
@@ -99,6 +100,15 @@ namespace QyzlAnalysis.Controllers
                 jc.status = "2";
             }
             return Json(jc);
+        }
+        private int getTy(string ty) {//获取识别码 
+            switch (ty) {
+                case "jl": return 1;
+                case "zl": return 2;
+                case "kj": return 3;
+                case "rc": return 4;
+                default: return 0;
+            }
         }
         public string rtnKr(string matchid) { //获取kr的值
             return computerMatch(matchid);
@@ -114,6 +124,7 @@ namespace QyzlAnalysis.Controllers
             List<List<string>> lls = new List<List<string>>();//存储 
             List<string> ls = new List<string>();
             List<int> li = new List<int>();
+            List<int?> ty = new List<int?>();
             foreach (string s in str) {
                 if (s != "") {
                     int id = Convert.ToInt32(s);
@@ -121,6 +132,7 @@ namespace QyzlAnalysis.Controllers
                     lzm.Add(zm);
                     ls.Add(zm.names);
                     li.Add(zm.id);
+                    ty.Add(zm.ty);
                 }
             }
             ldb = MatchData.GetArr(lzm);
@@ -133,7 +145,7 @@ namespace QyzlAnalysis.Controllers
             }
             string sjson = "[";
             for (int i = 0; i < lk.Count; i++) {
-                sjson += "{\"id\":\"" + li[i] + "\",\"name\":\"" + ls[i] + "\",\"k\":\"" + lk[i] + "\",\"r\":\"" + lr[i] + "\"},";
+                sjson += "{\"id\":\"" + li[i] + "\",\"ty\":\"" + ty[i] + "\",\"name\":\"" + ls[i] + "\",\"k\":\"" + lk[i] + "\",\"r\":\"" + lr[i] + "\"},";
             }
             if (sjson.EndsWith(",")) {
                 sjson = sjson.Substring(0, sjson.Length - 1);
@@ -152,12 +164,17 @@ namespace QyzlAnalysis.Controllers
             List<double> lr = new List<double>();
             List<string> lname = new List<string>();
             string[] strList = krval.Split(',');
+            string sty = "";//识别传进来的数据分类
             foreach (string s in strList) {
                 string[] kr = s.Split('_');
                 int nid = Convert.ToInt32(kr[0]);
                 ZL_Match zm = dbmatch.ZL_Match.Where(u => u.id == nid).FirstOrDefault();
                 lk.Add(Convert.ToDouble(kr[1]));
                 lr.Add(Convert.ToDouble(kr[2]));
+                if (Convert.ToInt32(kr[3]) != 2)//2代表专利数据，每组数据必带的
+                {
+                    sty = kr[3];
+                }
                 lname.Add(zm.names);
             }
             int aaf = 0;
@@ -166,7 +183,7 @@ namespace QyzlAnalysis.Controllers
                 aaf = matchNum.comAaf(lk[i], lk[i + 1]);
                 baf = matchNum.GetB(lr, i);
             }
-            return lname[0]+"-"+lname[1]+"_"+(aaf * baf).ToString();
+            return lname[0]+"-"+lname[1]+"_"+(aaf * baf).ToString()+"_"+sty;
         }
         public ActionResult DelFiles(string Vid)
         {
@@ -187,6 +204,10 @@ namespace QyzlAnalysis.Controllers
                 jc.msg = "删除失败";
             }
             return Json(jc);
+        }
+        public ActionResult iframeTable() {
+
+            return View();
         }
     }
 }

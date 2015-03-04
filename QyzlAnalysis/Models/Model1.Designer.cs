@@ -3463,6 +3463,30 @@ namespace QyzlAnalysis.Models
         private global::System.String _pihao;
         partial void OnpihaoChanging(global::System.String value);
         partial void OnpihaoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ty
+        {
+            get
+            {
+                return _ty;
+            }
+            set
+            {
+                OntyChanging(value);
+                ReportPropertyChanging("ty");
+                _ty = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ty");
+                OntyChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ty;
+        partial void OntyChanging(Nullable<global::System.Int32> value);
+        partial void OntyChanged();
 
         #endregion
 

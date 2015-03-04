@@ -11,14 +11,32 @@
     var pager = @ViewData["pagerIndex"]
     var tatol = @ViewData["Total"]
     var TotalPager = @ViewData["TotalPager"]
+    var hideval = "";
     $(function(){
        $("#computerVal").click(function () {
             var chk = [];
+            var chkty = []
             if($("input[name='krval']:checked").length == 2){
 
                 $("input[name='krval']:checked").each(function(){
-                    chk.push($(this).val()+"_"+$("#"+$(this).val()+"k").val()+"_"+$("#"+$(this).val()+"r").val())
+                    if($(this).attr("ty")==2){//为专利数据
+                        chk.push($(this).val()+"_"+$("#"+$(this).val()+"k").val()+"_"+$("#"+$(this).val()+"r").val()+"_"+$(this).attr("ty"))
+                    }else{
+                        if(chk.length==0){
+                            chkty.push($(this).val()+"_"+$("#"+$(this).val()+"k").val()+"_"+$("#"+$(this).val()+"r").val()+"_"+$(this).attr("ty"))
+                        }else{
+                            chk.push($(this).val()+"_"+$("#"+$(this).val()+"k").val()+"_"+$("#"+$(this).val()+"r").val()+"_"+$(this).attr("ty"))
+                        }
+                    }
                 })
+                if(chk.length==0){
+                    alert("请选择专利数据")
+                    return false
+                }else{
+                    if(chkty.length!=0){
+                        chk.push(chkty[0]);
+                    }
+                }
             }
             if(chk.length > 0){
             $.ajax({
@@ -28,7 +46,26 @@
                 dataType:"html",
                 success :function(result){
                     var str = result.split("_")
-                    $("#uls").append('<li>'+str[0]+'s=<input type="text" value="'+str[1]+'" class="sval"></li>');
+                    var strHtml ='<tr>'
+                            strHtml +='<th><img src="../../img/icon-delete-on.png" indexTy="'+j+'" onclick="delS(this)" />'+str[0]+'  =</th>'
+                                      
+                    if(parseInt(str[2])==1){
+                        strHtml +='<td><input type="text" value="'+str[1]+'" class="jjs" /></td>'
+                                     strHtml +='</tr>'
+                                     
+                        $("#jjdata").append(strHtml);
+                    }else if(parseInt(str[2])==3){
+                        strHtml +='<td><input type="text" value="'+str[1]+'" class="kjs" /></td>'
+                                     strHtml +='</tr>'
+                        $("#kjdata").append(strHtml);
+                    }else if(parseInt(str[2]) == 4){
+                        strHtml +='<td><input type="text" value="'+str[1]+'" class="rcs" /></td>'
+                                     strHtml +='</tr>'
+                        $("#rcdata").append(strHtml);
+                    }
+                    hideval +=escape(result+"|")
+                    document.cookie = "hideval="+ hideval;
+                    //$("#uls").append('<li>'+str[0]+'s=<input type="text" value="'+str[1]+'" class="sval"></li>');
                 }
             })}else{
                 alert("请选择2条数据")
@@ -38,17 +75,48 @@
         $("#computerSum").click(function(){
             var timeIndex = 0;
             var sum = 0;
-            $(".sval").each(function(){
+            var jjsval = 0;
+            var kjsval = 0;
+            var rcsval = 0;
+            $(".jjs").each(function(){//经济数据总和计算
                 var num =parseFloat($(this).val());
                 sum+=num;
                 timeIndex++
             })
             if(timeIndex!=0){
-                $("#sumval").val(sum/timeIndex)
+                jjsval = sum/timeIndex
             }else{
-                alert("未选择数据")
-                return false;
+                alert("经济数据不能为空")
+                return false
             }
+            timeIndex = 0;
+            sum = 0;
+            $(".kjs").each(function(){//科教数据总和计算
+                var num =parseFloat($(this).val());
+                sum+=num;
+                timeIndex++
+            })
+            if(timeIndex!=0){
+                kjsval = sum/timeIndex
+            }else{
+                alert("科教数据不能为空")
+                return false
+            }
+            timeIndex = 0;
+            sum = 0;
+            $(".rcs").each(function(){//人才数据总和计算
+                var num =parseFloat($(this).val());
+                sum+=num;
+                timeIndex++
+            })
+            if(timeIndex!=0){
+                rcsval = sum/timeIndex
+            }else{
+                alert("人才数据不能为空")
+                return false
+            }
+            var sumValue = 0.5*jjsval+0.3*kjsval+0.2*rcsval;
+            $("#sumval").val(sumValue)
         })
         $(".delV").click(function(){
         if(confirm("确定删除！")){
@@ -76,7 +144,7 @@
                 success : function(result){
                     var strconn = "";
                     $(result).each(function(){
-                        strconn += '<tr id='+this.id+'><td><input type="checkbox" name="krval" value='+this.id+' />'+this.name+'</td><td><input type="text" id="'+this.id+'k" value="'+this.k+'" /></td><td><input id="'+this.id+'r" type="text" value="'+this.r+'" /></td></tr>'
+                        strconn += '<tr id='+this.id+'><td><input type="checkbox" name="krval" value='+this.id+' ty="'+this.ty+'" />'+this.name+'</td><td><input type="text" id="'+this.id+'k" value="'+this.k+'" /></td><td><input id="'+this.id+'r" type="text" value="'+this.r+'" /></td></tr>'
                     })
                     $("#computerResult").append(strconn);
                 }
@@ -85,9 +153,63 @@
             $("#"+$(obj).val()).remove();
         }
     }
+    var j =0;
     $(document).ready(function () {
+        var strCookie=document.cookie;
+        var arrCookie=strCookie.split("; "); 
+        var userVal;
+        for(var i=0;i<arrCookie.length;i++){ 
+            var arr=arrCookie[i].split("="); 
+            if("hideval"==arr[0]){ 
+                userVal=arr[1]; 
+                break; 
+            } 
+        }
+        if(userVal!=""){
+            var strS = unescape(userVal).split("|");
+            for(var i = 0;i<strS.length;i++){
+                if(strS[i]!="" && strS[i]!=undefined){
+                    var str = strS[i].split("_")
+                    var strHtml ='<tr>'
+                            strHtml +='<th><img src="../../img/icon-delete-on.png" indexTy="'+j+'" onclick="delS(this)" />'+str[0]+'  =</th>'
+                                      
+                    if(parseInt(str[2])==1){
+                        strHtml +='<td><input type="text" value="'+str[1]+'" class="jjs" /></td>'
+                                        strHtml +='</tr>'
+                                     
+                        $("#jjdata").append(strHtml);
+                    }else if(parseInt(str[2])==3){
+                        strHtml +='<td><input type="text" value="'+str[1]+'" class="kjs" /></td>'
+                                        strHtml +='</tr>'
+                        $("#kjdata").append(strHtml);
+                    }else if(parseInt(str[2]) == 4){
+                        strHtml +='<td><input type="text" value="'+str[1]+'" class="rcs" /></td>'
+                                        strHtml +='</tr>'
+                        $("#rcdata").append(strHtml);
+                    }
+                    hideval +=escape(strS[i]+"|")
+                    document.cookie = "hideval="+ hideval;
+                    j++;
+                }
+            }
+        }
         getLink(pager, TotalPager, tatol, "../Matching/Index", "middle", "pagerLink", "");
     })
+    function delS(obj){
+        var t = parseInt($(obj).attr("indexTy"));
+        var hidevalList = unescape(hideval).split("|");
+        hidevalList.splice(t,1);
+        hideval = escape(hidevalList.join("|"));
+        document.cookie = "hideval="+ hideval;
+        $(obj).parent().parent().remove();
+    }
+    function clearTR(){
+        hideval = "";
+        document.cookie = "hideval="+ hideval;
+        $("#jjdata").html("");
+        $("#kjdata").html("");
+        $("#rcdata").html("");
+    }
 </script>
 <style type="text/css">
 <!--
@@ -127,7 +249,7 @@
         	<ul>
             	<li class="fl">
                 	<h1 class="fl" id="editName">数据比较</h1>
-            		<a href="#"><img src="../img/icon-edit.png" class="fl edit" onMouseOver="this.src='img/icon-edit-on.png'" onMouseOut="this.src='img/icon-edit.png'"></a>
+            		@*<a href="#"><img src="../img/icon-edit.png" class="fl edit" onMouseOver="this.src='img/icon-edit-on.png'" onMouseOut="this.src='img/icon-edit.png'"></a>*@
                 </li>
             </ul>
         </div>
@@ -146,20 +268,38 @@
                     <td>@y</td>
                     }
                     <td>操作</td>
+                    <td>类别</td>
                 </tr>
             </thead>
             <tbody id="thtr">
                @foreach (KeyValuePair<string, List<string>> kv in (Dictionary<string, List<string>>)ViewData["rpeo"])
                {
-                    <tr><td><input type='checkbox' name='cloumn' onclick="addInfomation(this)" value="@kv.Key.Substring(0, kv.Key.IndexOf("_"))" />@kv.Key.Substring(kv.Key.IndexOf("_")+1, kv.Key.Length - kv.Key.IndexOf("_")-1)</td>
+                    <tr><td><input type='checkbox' name='cloumn' onclick="addInfomation(this)" value="@kv.Key.Substring(0, kv.Key.IndexOf("_"))" />@kv.Key.Substring(kv.Key.IndexOf("_")+1, kv.Key.LastIndexOf("_") - kv.Key.IndexOf("_")-1)</td>
                         @foreach (string s in kv.Value) { 
                             <td>@s</td>
                         }
                         <td><a class="delV" href="#" vid="@kv.Key.Substring(0, kv.Key.IndexOf("_"))">删除</a></td>
+                        @if (kv.Key.Substring(kv.Key.LastIndexOf("_")+1, kv.Key.Length - kv.Key.LastIndexOf("_")-1) == "1")
+                        { 
+                            <td>经济数据</td>
+                        }
+                        else if (kv.Key.Substring(kv.Key.LastIndexOf("_")+1, kv.Key.Length - kv.Key.LastIndexOf("_")-1) == "3") { 
+                            <td>科教数据</td>
+                        }
+                        else if (kv.Key.Substring(kv.Key.LastIndexOf("_") + 1, kv.Key.Length - kv.Key.LastIndexOf("_") - 1) == "4")
+                        { 
+                            <td>人才数据</td>
+                        }
+                        else { 
+                            <td>专利数据</td>
+                        }
+         
                     </tr>
                }
             </tbody>
-            </table></div>
+            </table>
+            
+            </div>
             <div id="pagerLink"></div>
         	<!--  dataForm 表格数据  -->
         	<div class="dataForm oh tc">
@@ -167,9 +307,9 @@
             	<table class="dataForm tc">
                 	<thead>
                     	<tr>
-                            <td>数据**名称</td>
-                            <td>K</td>
-                            <td>R</td>
+                            <td>数据名称</td>
+                            <td>k</td>
+                            <td>r</td>
                 		</tr>
                     </thead>
                     <tbody id="computerResult">
@@ -180,16 +320,43 @@
                 
                 <!--  operate 操作 -->
                 <div class="operate oh mt10">
-                    <a href="#" id="computerVal"><img src="../img/btn-count-value.png"></a>
-                    <a href="#"><img src="../img/btn-empty-gray.png"></a>
+                    <a href="javascript:" id="computerVal"><img src="../img/btn-count-value.png"></a>
+                    <a href="javascript:clearTR()"><img src="../img/btn-empty-gray.png"></a>
                 </div>
                 <!--  operate 操作 end  -->
                 <div class="clear"></div>
                 
-                <div class="dataCompare">
-                    <ul id="uls">
-                    </ul>
+                <div class="dataCompare dataForm">
+                    <!--<ul id="uls">
+                    </ul>-->
+                    <table class="dataForm tc">
+                        <thead>
+                            <tr>
+                                <td>经济</td>
+                                <td>科教</td>
+                                <td>人才</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr valign="top">
+                                <td>
+                                    <table id="jjdata">
+                                    </table>
+                                </td>
+                                <td>
+                                    <table id="kjdata">
+                                    </table>
+                                </td>
+                                <td>
+                                    <table id="rcdata">
+                                    </table>
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
                 </div>
+                <input type="hidden" id="hideResult" />
                 <div class="clear"></div>
                 
                 <!--  operate 操作 -->
@@ -201,7 +368,7 @@
                 
                 
                 <div class="dataCompare">
-                    s=<input type="text" id = "sumval">
+                    S=<input type="text" id = "sumval">
                 </div>
                 
                 
