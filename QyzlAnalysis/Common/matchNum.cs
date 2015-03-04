@@ -13,7 +13,7 @@ namespace QyzlAnalysis.Common
             //if (k < 0) {
             //    k = -k;
             //}
-            if (1.35 < k && k<=1.5) {
+            if (1.35 < k) {
                 aaf = 10;
             }
             else if (1.2 < k && k <= 1.35) {

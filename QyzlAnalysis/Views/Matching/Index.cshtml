@@ -47,7 +47,7 @@
                 success :function(result){
                     var str = result.split("_")
                     var strHtml ='<tr>'
-                            strHtml +='<th><img src="../../img/icon-delete-on.png" indexTy="'+j+'" onclick="delS(this)" />'+str[0]+'  =</th>'
+                            strHtml +='<th><img src="../../img/icon-delete-on.png" indexTy="'+j+'" onclick="delS(this)" />'+str[0]+'</th>'
                                       
                     if(parseInt(str[2])==1){
                         strHtml +='<td><input type="text" value="'+str[1]+'" class="jjs" /></td>'
@@ -171,7 +171,7 @@
                 if(strS[i]!="" && strS[i]!=undefined){
                     var str = strS[i].split("_")
                     var strHtml ='<tr>'
-                            strHtml +='<th><img src="../../img/icon-delete-on.png" indexTy="'+j+'" onclick="delS(this)" />'+str[0]+'  =</th>'
+                            strHtml +='<th><img src="../../img/icon-delete-on.png" indexTy="'+j+'" onclick="delS(this)" />'+str[0]+'</th>'
                                       
                     if(parseInt(str[2])==1){
                         strHtml +='<td><input type="text" value="'+str[1]+'" class="jjs" /></td>'
