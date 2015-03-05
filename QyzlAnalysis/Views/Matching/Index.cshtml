@@ -126,7 +126,6 @@
                 data:{"Vid":$(this).attr("vid")},
                 datatType:"json",
                 success : function(jsobj){
-                    alert(jsobj.msg)
                     location.href = "../Matching/Index"
                 }
             })}else{
@@ -281,6 +280,12 @@
 {
     color: rgb(121, 181, 227);
 }
+.dateForm111
+{
+    max-height: 500px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    }
 
 -->
 </style>
@@ -307,7 +312,7 @@
         
         <!--  dataContent  -->
         <div class="dataContent">
-            <div class="dataForm">
+            <div class="dataForm dateForm111">
             <table id="tbList" class="tc dataForm">
             <thead>
                 <tr>
@@ -349,7 +354,8 @@
             </table>
             
             </div>
-            <div id="pagerLink"></div>
+            <div class="clear"></div>
+            @*<div id="pagerLink"></div>*@
         	<!--  dataForm 表格数据  -->
         	<div class="dataForm oh tc">
                 
@@ -412,7 +418,7 @@
                 
                 <!--  operate 操作 -->
                 <div class="operate oh mt10">
-            		<a href="#" id="computerSum"><img src="../img/btn-count-total.png"></a>
+            		<a href="javascript:" id="computerSum"><img src="../img/btn-count-total.png"></a>
                 </div>
                 <!--  operate 操作 end  -->
                

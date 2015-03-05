@@ -27,7 +27,7 @@ namespace QyzlAnalysis.Controllers
                 pageIndex = 1;
             }
             ViewData["pagerIndex"] = pageIndex;
-            const int pageSize = 10;
+            const int pageSize = 100;
             List<string> lyear = new List<string>();
             for (int i = 2004; i <= DateTime.Now.AddYears(-1).Year; i++)
             {
@@ -72,6 +72,14 @@ namespace QyzlAnalysis.Controllers
         public ActionResult insert(string nums, string timequene,string names)
         {
             JsonClass jc = new JsonClass();
+            string diyTy = "";
+            try
+            {
+                diyTy = Request.QueryString["zlty"].ToString();
+            }
+            catch {
+                diyTy = "";
+            }
             string years = "";
             try
             {
@@ -87,7 +95,13 @@ namespace QyzlAnalysis.Controllers
                     m.nums = numList[i];
                     m.names = nameList[i].Substring(2, nameList[i].Length-2);
                     m.years = years;
-                    m.ty = getTy(nameList[i].Substring(0, 2));
+                    if (diyTy != "") {
+                        m.ty = 2; 
+                    }
+                    else
+                    {
+                        m.ty = getTy(nameList[i].Substring(0, 2));
+                    }
                     m.pihao = timequene;
                     dbmatch.ZL_Match.AddObject(m);
                     dbmatch.SaveChanges();
