@@ -144,7 +144,7 @@
                 success : function(result){
                     var strconn = "";
                     $(result).each(function(){
-                        strconn += '<tr id='+this.id+'><td><input type="checkbox" name="krval" value='+this.id+' ty="'+this.ty+'" />'+this.name+'</td><td><input type="text" id="'+this.id+'k" value="'+this.k+'" /></td><td><input id="'+this.id+'r" type="text" value="'+this.r+'" /></td></tr>'
+                        strconn += '<tr id='+this.id+'><td><input type="checkbox" name="krval" value='+this.id+' ty="'+this.ty+'" />'+this.name+'</td><td><input type="text" id="'+this.id+'k" value="'+this.k+'" /></td><td><input id="'+this.id+'r" type="text" value="'+this.r+'" /></td><td><input id="'+this.id+'d" type="text" value="'+this.d+'" /></td></tr>'
                     })
                     $("#computerResult").append(strconn);
                 }
@@ -310,6 +310,7 @@
                             <td>数据名称</td>
                             <td>k</td>
                             <td>r</td>
+                            <td>角度</td>
                 		</tr>
                     </thead>
                     <tbody id="computerResult">

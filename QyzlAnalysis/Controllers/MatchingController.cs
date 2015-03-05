@@ -121,6 +121,7 @@ namespace QyzlAnalysis.Controllers
             List<double> lbS = new List<double>();
             List<string> lk = new List<string>();
             List<string> lr = new List<string>();
+            List<double> ld = new List<double>();
             List<List<string>> lls = new List<List<string>>();//存储 
             List<string> ls = new List<string>();
             List<int> li = new List<int>();
@@ -140,12 +141,14 @@ namespace QyzlAnalysis.Controllers
             {
                 double k=Calculate.MultiLine(lb[0], lb[1], lb[0].Length, 1)[1];
                 lk.Add(k.ToString());
+                double d = Math.Atan(k) / 3.14 * 180;
+                ld.Add(d);
                 double r = Calculate.GetR2(lb[0], lb[1]);
                 lr.Add(r.ToString());
             }
             string sjson = "[";
             for (int i = 0; i < lk.Count; i++) {
-                sjson += "{\"id\":\"" + li[i] + "\",\"ty\":\"" + ty[i] + "\",\"name\":\"" + ls[i] + "\",\"k\":\"" + lk[i] + "\",\"r\":\"" + lr[i] + "\"},";
+                sjson += "{\"id\":\"" + li[i] + "\",\"ty\":\"" + ty[i] + "\",\"name\":\"" + ls[i] + "\",\"k\":\"" + lk[i] + "\",\"r\":\"" + lr[i] + "\",\"d\":\"" + ld[i] + "\"},";
             }
             if (sjson.EndsWith(",")) {
                 sjson = sjson.Substring(0, sjson.Length - 1);
