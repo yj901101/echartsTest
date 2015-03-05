@@ -1,5 +1,9 @@
-﻿function addmatch() {
+﻿function addmatch(ty) {
     var chkunit1 = [];
+    var diyZl = "";
+    if (ty == 2) {
+        diyZl = "diy";
+    }
     var cloumnchk = new Array();
     var rowchk = new Array();
     var cloumnchkval = new Array();
@@ -25,7 +29,7 @@
     })
     var d = new Date();
     timequeue = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds() + "" + d.getMilliseconds()
-    $.post("../Matching/insert", { "nums": cloumnchk.join(","), "timequene": timequeue, "names": cloumnchkval.join(",") }, function (jsobj) {
+    $.post("../Matching/insert?zlty="+diyZl, { "nums": cloumnchk.join(","), "timequene": timequeue, "names": cloumnchkval.join(",") }, function (jsobj) {
         alert(jsobj.msg)
     })
 }
