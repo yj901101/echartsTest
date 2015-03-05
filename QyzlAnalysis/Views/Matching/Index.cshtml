@@ -209,6 +209,55 @@
         $("#kjdata").html("");
         $("#rcdata").html("");
     }
+    function OutExcel(){
+        var rowarry = new Array();
+        var $firsrrow = $($("#tbList2 tr")[0]);
+        var firstrowcontent = "";
+        for (var s = 0; s < $firsrrow.find("td").length; s++) {
+            firstrowcontent = firstrowcontent + $($firsrrow.find("td")[s]).html() + ";";
+        }
+        rowarry.push(firstrowcontent);
+        var checkedrow = new Array();
+        var m = 0;
+        for (var n = 0; n < $("#tbList2 input[type=\"checkbox\"]").length; n++) {
+            if ($("#tbList2 input[type=\"checkbox\"]")[n].checked) {
+                m++;
+              checkedrow.push($($("#tbList2 input[type=\"checkbox\"]")[n]).parent().parent());
+            }
+        }
+       if (m == 0) {
+            alert("未选中无法导出表格");
+            return;
+        }
+        else {
+            for (var i = 0; i < checkedrow.length; i++) {
+                var rowcontent = "";
+                var $row = $(checkedrow[i]);
+               for (var j = 0; j < $row.find("input").length; j++) {
+                    if (j != 0) {
+                        rowcontent = rowcontent + $($row.find("input")[j]).val()+";";
+                    }
+                    else {
+                        var str = $($row.find("input")[j]).parent().html();
+                        var regrule = ">[\\w\\W]*";
+                        str = str.match(regrule).toString().substring(1,str.length);
+                        rowcontent = rowcontent + str+";";
+                    }
+                }
+                rowcontent = rowcontent.substring(0, rowcontent.length - 1);
+                rowarry.push(rowcontent);
+            }
+        }
+        $.getJSON("/CustomData/ExcelOutput", "data=" + rowarry + "", function (jsobj) {
+            //alert(jsobj);
+            host = window.location.host;
+            var url ="http://"+host + jsobj.toString();
+            var url2 = "http://localhost:5788" + jsobj.toString();
+           // alert(url + "____" + url2);
+             window.location = url;
+            //alert(host + jsobj.toString());
+        });
+      }
 </script>
 <style type="text/css">
 <!--
@@ -310,7 +359,7 @@
         	<!--  dataForm 表格数据  -->
         	<div class="dataForm oh tc">
                 
-            	<table class="dataForm tc">
+            	<table class="dataForm tc" id="tbList2">
                 	<thead>
                     	<tr>
                             <td>数据名称</td>
@@ -329,6 +378,7 @@
                 <div class="operate oh mt10">
                     <a href="javascript:" id="computerVal"><img src="../img/btn-count-value.png"></a>
                     <a href="javascript:clearTR()"><img src="../img/btn-empty-gray.png"></a>
+                    <a href="javascript:OutExcel()"><img src="../../img/btn-export-excel.png" /></a>
                 </div>
                 <!--  operate 操作 end  -->
                 <div class="clear"></div>
