@@ -132,6 +132,11 @@
                 return false;
             }
         })
+        $("#allchecked").click(function(){
+            if($("#allchecked").attr("checked")){
+                $("input[name='krval']").attr("checked",true);
+            }
+        })
     })
     function addInfomation(obj){
         if($(obj).attr('checked')){
@@ -313,7 +318,7 @@
             	<table class="dataForm tc">
                 	<thead>
                     	<tr>
-                            <td>数据名称</td>
+                            <td><input type="checkbox" id="allchecked" />数据名称</td>
                             <td>k</td>
                             <td>r</td>
                             <td>角度</td>
