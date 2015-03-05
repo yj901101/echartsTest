@@ -8,56 +8,47 @@ namespace QyzlAnalysis.Common
     public class matchNum
     {
         public static int comAaf(double k1,double k2) {
-            double k = k1 - k2;
+            double k = Math.Atan(k1) / 3.14 * 180 - Math.Atan(k2) / 3.14 * 180;
             int aaf = 0;
             //if (k < 0) {
             //    k = -k;
             //}
-            if (1.35 < k) {
+            if ((-24 < k && k<= -20) ||(-28< k && k<-25)) {
                 aaf = 10;
             }
-            else if (1.2 < k && k <= 1.35) {
+            else if ((-20 < k && k <= -15)||(-32<k && k<= -28)) {
                 aaf = 9;
             }
-            else if (1.05 < k && k <= 1.2)
+            else if ((-15 < k && k <= -10) || (-36< k && k<= -32))
             {
                 aaf = 8;
             }
-            else if (0.9 < k && k <= 1.05)
+            else if ((-10 < k && k <= -5) || (-40<k && k<= -36))
             {
                 aaf = 7;
             }
-            else if (0.75 < k && k <= 0.9)
+            else if ((-5 < k && k <= -1) || (-44< k && k<= -40))
             {
                 aaf = 6;
             }
-            else if (0.6 < k && k <= 0.75)
+            else if ((-1 < k && k <= 5) || (-48< k && k<= -44))
             {
                 aaf = 5;
             }
-            else if (0.45 < k && k <= 0.6)
+            else if ((5 < k && k <= 10) || (-52< k && k<= -48))
             {
                 aaf = 4;
             }
-            else if (0.3 < k && k <= 0.45)
+            else if (10 < k && k <= 15 || (-56 < k && k<= -52))
             {
                 aaf = 3;
             }
-            else if (0.15 < k && k <= 0.3)
+            else if ((15 < k && k <= 20) || (-60 <k && k<= -56))
             {
                 aaf = 2;
             }
-            else if (0 < k && k <= 0.15)
+            else if ((20 < k) || (k<-60))
             {
-                aaf = 1;
-            }else if(-0.5< k &&　k<=0){
-                aaf = 5;
-            }
-            else if (-1 < k && k <= -0.5)
-            {
-                aaf = 3;
-            }
-            else if(k<=-1){
                 aaf = 1;
             }
             return aaf;
