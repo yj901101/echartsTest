@@ -174,9 +174,10 @@
                 } else {
                     if (sunit != "0") {
                         if (chkunit.length > 0) {
-                            if (chkunit.in_array(sunit)) {
+                            if (chkunit.in_array(sunit) || chkunit.isNull()) {
                                 if (!chkjjzl.in_array(stype)) {
-                                    str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                                    chkunit.push(sunit)//添加数据添加单位
+                                    str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "','jj')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
                                     chkjjzl.push(stype);
                                 } else {
                                     alert("数据已被选择")
@@ -185,9 +186,10 @@
                                 alert("单位过多")
                             }
                         } else {
-                            chkunit.push(sunit)
+                            //chkunit.push(sunit)
                             if (!chkjjzl.in_array(stype)) {
-                                str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                                chkunit.push(sunit)//添加数据添加单位
+                                str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "','jj')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
                                 chkjjzl.push(stype);
                             } else {
                                 alert("数据已被选择")
@@ -195,7 +197,8 @@
                         }
                     } else {
                         if (!chkjjzl.in_array(stype)) {
-                            str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
+                            chkunit.push("")//记录专利单位为空，作为索引
+                            str = "<tr><td><label onclick='labelclick()'><input type='checkbox' name='cloumn' value='" + stype + "'>" + sname + "</label><a href='#' onclick=removeRow(this,'" + stype + "','zl')><img src='../img/icon-delete.png' onMouseOver=this.src='../img/icon-delete-on.png' onMouseOut=this.src='../img/icon-delete.png'></a></td>" + strconn + "<td>" + strselect + "</td></tr>";
                             chkjjzl.push(stype);
                         } else {
                             alert("数据已被选择")
@@ -206,14 +209,26 @@
             }
         })
     })
-    function removeRow(r,aval) {
+    Array.prototype.isNull = function () {
+        var b = true;
+        var newNullArray = this;
+        for (var i = 0; i < newNullArray.lenght; i++) {
+            if (newNullArray[i] != "") {
+                b = false;
+            }
+        }
+        return b;
+    }
+    function removeRow(r,aval,tys) {
 //        var tbody = document.getElementById('thtr')
 //        tbody.deleteRow(r.parentNode.parentNode.rowIndex);
         // alert(r.parentNode.parentNode.rowIndex)
         var index = r.parentNode.parentNode.rowIndex
         $(r).parent().parent().remove();
         chkjjzl.remove(aval);
-        chkunit.splice(index-1,1)
+        if (tys == "jj") {
+            chkunit.splice(index - 1, 1)
+        }
         if (chkjjzl.length == 0) {
             chkunit = [];
         }

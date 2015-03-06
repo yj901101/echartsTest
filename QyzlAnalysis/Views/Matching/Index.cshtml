@@ -132,11 +132,7 @@
                 return false;
             }
         })
-        $("#allchecked").click(function(){
-            if($("#allchecked").attr("checked")){
-                $("input[name='krval']").attr("checked",true);
-            }
-        })
+        
     })
     function addInfomation(obj){
         if($(obj).attr('checked')){
@@ -263,6 +259,9 @@
             //alert(host + jsobj.toString());
         });
       }
+      function allChecked(){
+         $("input[name='krval']").attr("checked","checked");
+      }
 </script>
 <style type="text/css">
 <!--
@@ -367,7 +366,7 @@
             	<table class="dataForm tc" id="tbList2">
                 	<thead>
                     	<tr>
-                            <td><input type="checkbox" id="allchecked" />数据名称</td>
+                            <td>数据名称</td>
                             <td>k</td>
                             <td>r</td>
                             <td>角度</td>
